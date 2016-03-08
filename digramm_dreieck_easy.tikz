@@ -1,0 +1,9 @@
+\begin{tikzcd}[row sept=30pt, column sept=25pt]
+	A \ar{rr}{f} \ar{dr}[swap]{g} 
+	&
+	& 
+	B \ar{dl}{h}\\
+	&
+	C
+	&
+\end{tikzcd}
