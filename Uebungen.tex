@@ -1,0 +1,530 @@
+% !TeX spellcheck = de_DE
+% !TeX encoding = utf8
+
+%\documentclass[xcolor=dvipsnames]{beamer}
+\documentclass{article}
+%\documentclass[xcolor=dvipsnames, handout]{beamer}
+%\usetheme{Frankfurt}  %% Themenwahl
+%\setbeamertemplate{theorems}[numbered]
+\usepackage[left=3cm,right=3cm]{geometry}
+ \renewcommand*\baselinestretch{1.4}% 
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{tikz}
+\usetikzlibrary{3d,calc}
+\usetikzlibrary{arrows}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{nicefrac}
+\usepackage{mathepakete}
+\usepackage{/usr/local/share/texmf/tex/latex/shortcuts}
+\usepackage{shortcuts}
+\renewcommand{\ez}{\mathbf{1}}
+\DeclareBoldMathCommand{\T}{T}
+\DeclareBoldMathCommand{\p}{p}
+%\DeclareMathOperator{\W}{W}
+%\DeclareMathOperator{\E}{E}
+%\DeclareMathOperator{\sgn}{sgn}
+\newenvironment{proof}{
+	\textit{Beweis: \\}
+}{
+	\begin{flushright}
+		$\Box$ 
+	\end{flushright}
+}
+ 
+\renewcommand{\binom}[2]{
+\begin{pmatrix}
+#1 \\
+#2
+\end{pmatrix}}
+%\renewcommand{\binom}[2]{ 
+%\left(\stackrel{#1}{{#2}}\right)
+%}
+%\newtheorem{defn}{Definition}[section]
+%\newtheorem{satz}[defn]{Satz}
+%\newtheorem{lemmas}[defn]{Lemma}
+%\newtheorem{korollar}[defn]{Korollar}
+%\newtheorem{bemerkung}[defn]{Bemerkung}
+%\newtheorem{schema}[defn]{Schema}
+%\newtheorem{annahme}[defn]{Annahme}
+%\newtheorem{aufgabe}[defn]{Aufgabe}
+%\newtheorem{notation}[defn]{Notation}
+%\newtheorem{pseudo-defn}[defn]{"Definition"}
+%\newtheorem*{defn*}{Definition}
+%\newcounter{faktcounter}
+%\newenvironment{fakt}{\stepcounter{faktcounter} 
+%\begin{exampleblock}
+%	{Fakt %\arabic{faktcounter}
+%		}
+%		}{\end{exampleblock}}
+%
+%\newenvironment{beweis}%}
+%		{\begin{proof}[Beweis: \nopunct]}
+%	{\end{proof}}
+%\newenvironment{bewfort}
+%	{\begin{proof}[Fortsetzung Beweis: \nopunct]}
+%	{\end{proof}}
+%\newenvironment{beweisskizze}
+%	{\begin{proof}[Beweisskizze: \nopunct]}
+%	{\end{proof}}
+\newtheorem{beispiel}[defn]{Beispiel}
+ 
+\title{Mehrheits- und Schwellwert-Funktionen}
+%\subtitle{Seminar bei Yuri Person}
+\author{Jens Heinrich}
+\date{16. Juni 2015}
+ 
+ 
+
+ 
+\begin{document}
+ % Festlegung Art der Zitierung - Havardmethode: Abkuerzung Autor + Jahr
+% \bibliographystyle{alphadin}
+\bibliographystyle{din}
+ 
+	\maketitle
+%\begin{frame}{Uebersicht}
+	\tableofcontents
+%\end{frame}
+
+\newpage
+Diese Ausarbeitung beruht auf dem Buch 'Analysis der boolschen Funktionen' \cite{booleananalysis} und besch\"aftigt sich insbesondere mit einem Beweis von  {Peres Theorem } $\left[\ref{peres}\right] $, den Fouriergewichten auf niedrigen Graden $\left[\ref{weights}\right] $ \ und den Fourierkoeffizienten der Mehrheitsfunktion $\left[\ref{Maj}\right]$.
+
+\section{Lineare und Polynomielle Grenzwertfunktionen}
+
+
+
+%	\math
+%	\begin{frame}
+		\begin{defn}[Lineare Grenzwertfunktion (LTF)]
+			Eine Funktion wird als LTF bezeichnet, wenn sie sich als $	f(x)= sgn (a_0+ a_1 x_1 \hdots a_n x_n) $	mit $a_0,a_1, \dots a_n \in \Rz$ schreiben l\"asst.
+		\end{defn}
+%		# \pause
+	%
+		 \begin{defn}[Polynomielle Grenzwertfunktion (PTF)]
+			 Eine Funktion wird als PTF von Grad kleiner $k$ bezeichnet, wenn sie sich als\\
+				$ f(x)=sgn(p(x))$ f\"ur ein Polynom $p:\lbrace -1,1 \rbrace  \to \Rz :deg(p) \leq k $ darstellen l\"asst.
+		 \end{defn}
+		 
+
+%	\end{frame}
+%	 
+%	\begin{satz}
+%		Sei $ f:\lbrace -1,1 \rbrace^n \to \lbrace -1,1 \rbrace $ eine LTF und \ $g:\lbrace -1, 1 \rbrace^n \to \lbrace -1, 1 \rbrace $ eine beliebige Funktion. Dann gilt : \\
+%		\[
+%			\widehat{g}(S)=\widehat{f}(S) \forall \left| S \right| \leq 1 \Rightarrow g=f
+%		\]
+%	\end{satz}
+%	 \begin{proof}
+%		 W\"ahle $l(x) : f(x) = sgn(l(x)), deg(l) \leq 1 \cap l(x) \neq 0 \forall x \in \lbrace -1,1 \rbrace^n $.\\
+%		 $\RA \forall x \in \lbrace -1,1 \rbrace^n $ gilt: $f(x)l(x)\overset{nach der Definition}{=} \left| l(x) \right| $
+%	 Die Gleichheit gilt nur f\"ur $f(x)=g(x)$, da $l(x) \neq 0$. \RA \sum_{ \left|S\right| \leq 1 }\widehat{f}(S) \widehat{l}(S) \overset{Plancherel}{=} \E()
+	\begin{satz} 
+		Sei  $ f:{\left\lbrace -1, 1 \right\rbrace}^n \to \left\lbrace -1,1 \right\rbrace $ \ eine PTF von Grad kleiner gleich \ $k$ \ und sei \ $ g:\left\lbrace-1,1 \right\rbrace^n \to \left\lbrace -1,1 \right\rbrace $ \ eine beliebige Funktion.
+	Wenn $ \widehat{g}=\widehat{f} \ \forall \left| S \right| \leq k$, dann gilt \ $g=f$ .
+
+	
+	\begin{proof}
+		$ f(x) $ ist eine PTF $  \Rightarrow \exists p:{\left\lbrace -1,1 \right\rbrace}^n \to \Rz : f(x)= sgn(p(x) ) $ und  
+		 $ \geq (p) \leq k$. \\
+		 Da $f(x) \neq 0 \ \forall x \in {\left\lbrace -1,1 \right\rbrace}^n $  folgt,
+		 dass $ p(x) \neq 0 \forall x \in \left\lbrace -1,1 \right\rbrace$ . \\
+		  Es gilt offensichtlich \ $f(x) p(x) \overset{sgn(x)*sgn(x)=1}{=} \left| p(x) \right| \overset{g\leq 1}{\geq } g(x) p(x)$. \\
+		  Gleichheit kann nur gelten, wenn $f(x)=g(x)$ , \ da $p(x) \neq 0 $.\\
+		Jetzt gilt aber auch \\
+		\begin{eqnarray*}
+ 			\sum_{ \left| S \right| \leq k} \widehat{f} (S) \widehat{p} (S) \qquad ^{\overset{deg(p)\leq k}{}}=& \sum_{\left| S \right| } \widehat{f} (S) \widehat{p} (S) & \\ ^{\overset{Plancherel}{} }{=}&	\Ez\left[f(x)p(x)\right] & \\
+ 			^{\overset{oben gezeigt}{} }{\geq}& \Ez \left[g(x)p(x) \right] & \\
+ 			^{\overset{Plancherel}{} }{=}& \sum_{\left| S \right| } \widehat{g}(S) \widehat{p}(S) 	&=  ^{\overset{deg(p)\leq k}{}} \sum_{\left| S \right| \leq k} \widehat{g}(S) \widehat{p}(S) 
+		\end{eqnarray*} \\
+		Nach Annahme steht jetzt au{\ss}en dasselbe und somit folgt
+		\[
+			f(x)=g(x) \  \forall x \in \left\lbrace -1,1 \right\rbrace ^n \ .
+		\]
+	\end{proof}
+		 \end{satz}
+
+	Dieser Satz gibt uns ein Mittel, um Funktionen als PTFs darzustellen.
+	
+	\begin{satz}
+		Sei $f_:\left\lbrace -1,1 \right\rbrace^{n} \to \left\lbrace -1, 1 \right\rbrace $ eine Funktion von Grad $k$, dann gilt $ \Wb^{\le k}[f] \geq e^{-2k} $.\\
+%%	\end{satz}
+		\begin{proof}
+			$f(x)=sgn(p(x))$ , wobei \ $deg(p)=k$. 
+			\begin{eqnarray*}
+				\RA \qquad \left\lVert p \right\rVert_1 =&  \E[\left|p(x) \right|] &\\
+				 =&\left\langle f,p \right\rangle &\\
+				=& \left\langle f^{\leq k},p \right\rangle &\\
+				 \leq &\left\lVert f^{\leq k} \right\rVert_2 \left\lVert p \right\rVert_2 = & \sqrt{\W{\leq k}[f]} \cdot \left\lVert p \right\rVert_2	 
+			\end{eqnarray*}
+			Jetzt nutzten wir folgende Ungleichung, die in Kapitel 9 \cite{booleananalysis} bewiesen wird: $\left\lVert p \right\rVert_2 \leq e^k \left\lVert p\right\rVert_1$ 			
+			\begin{eqnarray*}
+				 	\left\lVert p \right\rVert_2 \leq & e^k  	\left\lVert p\right\rVert_1 &\leq  e^k \cdot \sqrt{\Wb^{\leq k}[f]} \cdot \left\lVert p \right\rVert_2	\\
+				       e^{-k} \cdot\left\lVert p \right\rVert_2 \leq & \sqrt{\Wb^{\leq k}[f]} \cdot \left\lVert p \right\rVert_2 & \\
+				       e^{-k} \leq & \sqrt{\Wb^{\leq k}[f]} &\\
+				     e^{-2k} \leq &\left( \sqrt{ \Wb^{\leq k}[f] }\right)^2&=\Wb^{\leq k}[f] 
+			\end{eqnarray*}
+			Also gilt die Behauptung.
+		\end{proof}
+	\end{satz}
+	Dies liefert uns eine grobe Vorstellung der Fouriergewichte von niedrigen Graden.
+	\begin{prop}
+		Sei $f: {\left\lbrace -1,1 \right\rbrace}^n \to \left\lbrace -1,1 \right\rbrace $ und $ \delta \in \left( 0, \frac{1}{2} \right] $. Dann ist $f \ (3NS_\delta[f])$-nah zu einer PTF vom Grad $\frac{1}{\delta}$.
+
+	\begin{proof}
+		Nach 3.3 ist das Fourierspektrum von $f$ \ bis Grad $ \frac{1}{\delta} $ \ $\varepsilon$- konzentriert f\"ur $\varepsilon \leq 3NS_\delta [f]$ ,also $W^{>k} \leq \varepsilon$ .\\
+		 W\"ahlen wir jetzt $p$, sodass $ \widehat{p}(S)=\widehat{f}(S) \ \forall \left\lVert S \right\rVert \leq k$, dann gilt : $\left\lVert f-p \right\rVert = W^{>k} \leq  \varepsilon$ und $p$ ist als PTF vom Grad kleiner gleich $k$ darstellbar ; somit ist $f \ \varepsilon$-nah zu einer PTF vom Grad kleiner Gleich $k$ und $ \varepsilon \leq (3NS_\delta[f]) $ .
+	\end{proof}
+		\end{prop}	
+	\begin{defn}
+		Die Repr\"asentantion f(x)=sgn (p(x)) hat eine 'spartsity' von h\"ochstens s, wenn p(x) h\"ochstens s Terme hat .
+	\end{defn}
+	Der folgende Satz liefert ein Mittel, um Polynome nicht nur in der 'H\"ohe', sondern auch in der 'Breite' zu beschr\"anken.
+	\begin{satz}
+		Sei $ f: { \left\lbrace -1, 1 \right\rbrace}^n \to \Rz $ ungleich 0, $ \delta >0 $ und 
+		$ s  \geq 4n { \widehat{\lVert} f \widehat{\rVert} }^2_1  \delta^2 $
+		 eine ganze Zahl. Dann gibt es ein multi-lineares Polynom $ q:\left\lbrace -1,1 \right\rbrace^n \to \Rz $ mit sparsity h\"ochstens s ,sodass
+		$ \left\lVert f-q \right\rVert_\infty < \delta $ 
+
+ \begin{proof}
+		 Sei $ \T \subseteq [n] $ zuf\"allig, sodass $ \Pb [\T = T]= {\left| \widehat{f(T)} \right|}/{{  \widehat{\lVert} f  \widehat{\rVert} }_1}$.
+		 Seien $ \T_1 \dots \T_s$ unabh\"anigige Ziehungen, dann definieren wir $ \p(x) := \sum_{i=1}^s \sgn (\widehat{f}(\T_i))x^{\T_i}$.
+		 Wenn $x \in \left\lbrace -1,1 \right\rbrace^n $ fest gew\"ahlt wird, dann ist jedes Monom $\sgn (\widehat{f}(\T_i))x^{\T_i}$ eine zuf\"allig auf $\left\lbrace -1,1 \right\rbrace $ verteilter Zufallvariabel mit dem Erwartungswert 
+		 \[
+		  \E\limits_\T [ \sgn (\widehat{f}(\T))x^{\T}]=\sum_{T \subseteq [n]} \frac{\left| \widehat{f}(T) \right|}{{ \widehat{\lVert} f \widehat{\rVert} }_1} \sgn (\widehat{f}(T))x^{T} = \frac{1}{{ \widehat{\lVert} f \widehat{\rVert} }_1} \sum_{T \subseteq [n]} \widehat{f} (T) x^T =\frac{f(x)}{{ \widehat{\lVert} f \widehat{\rVert} }_1} ;
+		 \]
+		daraus k\"onnen wir mit dem Chernoff Bound folgern, dass f\"ur ein beliebiges $\varepsilon >0 $ gilt:
+		\[
+			\underset{{\T_1 \dots \T_s }}{\Pb} \left[\left| \p (x) - \frac{f(x)}{{ \widehat{\lVert} f \widehat{\rVert} }_1}s  \right| \geq \varepsilon s \right] \leq 2 exp( -\frac{\varepsilon^2 s}{2})
+		\]
+		Wenn wir jetzt $\varepsilon:=\delta /{{ \widehat{\lVert} f \widehat{\rVert} }_1} $ w\"ahlen und da nach Annahme 
+		$ s \geq 4n {{ \widehat{\lVert} f \widehat{\rVert} }_1^2}/ \delta^2 $ .
+%		\[
+%			\RA \underset{{\T_1 \dots \T_s }}{\Pb} \left[\left| \p (x) - \frac{f(x)}{{ \widehat{\lVert} f \widehat{\rVert} }_1}s  \right| \geq \varepsilon s \right] \leq 2 exp( -\frac{\varepsilon s}{2}) \leq 2 exp \left( -\frac{  \frac{{4n {{ \widehat{\lVert} f \widehat{\rVert} }_1^2} }\delta }{{{ \widehat{\lVert} f \widehat{\rVert} }_1}{ \delta^2}} }{2} \right) = 2 exp \left( -  \frac{{2n {{ \widehat{\lVert} f \widehat{\rVert} }_1} } }{ \delta}}  \right)
+%		\]
+		k\"onnen wir die Wahrscheinlichkeit $ 2 \cdot exp(-2n) <2^{-n}$ nach oben absch\"atzen.
+		\[
+					\underset{{\T_1 \dots \T_s }}{\Pb} \left[\left| \p (x) - \frac{f(x)}{{ \widehat{\lVert} f \widehat{\rVert} }_1}s  \right| \geq \varepsilon s \right] \leq 2^{-n}
+		\]
+		Wenn wir jetzt alle $ 2^n$ Wahlen aus $ \left\lbrace -1,1 \right\rbrace^n $ ber\"ucksichtigen, folgt:\\
+		\[
+			 \underset{{\T_1 \dots \T_s }}{\Pb} \left[\left| \p (x) - \frac{f(x)}{{ \widehat{\lVert} f \widehat{\rVert} }_1}s  \right| \geq \varepsilon s \right] <1 
+		\]
+		$\RA \quad \exists \ p(x)=\sum_{i=1}^s \sgn (\widehat{f}(\T_i))x^{\T_i} ,\text{sodass f\"ur alle} \ x \in \left\lbrace -1,1 \right\rbrace^n \text{gilt} :$
+%		replaced with operator style sentence
+%		Somit k\"onnen wir schliesse, dass ein $p(x)=\sum_{i=1}^s \sgn (\widehat{f}(T_i))x^{T_i}$ existiert, sodass f\"ur alle $ x \in \left\lbrace -1,1 \right\rbrace^n $ : 
+		\[	\left|p(x) - \frac{f(x)}{{ \widehat{\lVert} f \widehat{\rVert} }_1}s \right|	< \varepsilon s  =\frac{\delta}{{ \widehat{\lVert} f \widehat{\rVert} }_1}  s 
+			\overset{\cdot \frac{{ \widehat{\lVert} f \widehat{\rVert} }_1}{s} }{ \RA } \left| \frac{{ \widehat{\lVert} f \widehat{\rVert} }_1}{s} \cdot p(x) -f(x) \right| < \delta 		\]
+		Also w\"ahlen wir $q=  \frac{{ \widehat{\lVert} f\widehat{\rVert} }_1}{s} \cdot p(x) $.
+	 \end{proof}
+	 	\end{satz}
+	 \section{Fourier Koeffizienten der Mehrheitsfunktion}
+	 \label{Maj}
+	 Dieser Abschnitt besch\"aftigt sich explizit mit dem Berechnen der Fourierkoeffizienten der Mehrheitsfunktion.
+	 \begin{satz}
+		Wenn $ \left|S \right|	$ gerade ist, dann gilt $ \widehat{Maj_n} (S) = 0$ .\\
+		Wenn $ \left|S \right| =k	$ ungerade ist, dann gilt: $ \widehat{Maj_n} (S) = (-1)^\frac{k-1}{2} \frac{ \binom{\frac{n-1}{2}}{\frac{k-1}{2}}}{\binom{n-1}{k-1}} \cdot \frac{2}{2^n}\binom{n-1}{\frac{n-1}{2}}$.
+
+	 \begin{proof}
+		 Da $ Maj_n$ eine 'ungerade' Funktion ist, gilt die erste Behauptung ohne Weiteres.\\
+		 Wir nehmen jetzt also an, dass k ungerade ist.
+		 Jetzt betrachten wir die formale Ableitung
+		 \[ D_n Maj_n= \frac{f\left(x^{(x \mapsto 1)}\right)-f\left(x^{(x \mapsto -1)}\right) }{2} = Half_n: \left\lbrace -1,1 \right\rbrace^{n-1} \to \left\lbrace 0,1 \right\rbrace \ , \]
+		 wobei $Half_n$  die Indikatorfunktion der Tupel, welche die H\"alfte der Eintr\"age $=1$ haben, auf den $(n-1)-$Tupeln ist. Da die Fourierkoeffizienten von $Maj (S)$ nur von $ \left| S \right| $ abh\"angen folgt f\"ur die Wahl\\
+		  $T \subseteq [n-1] : \left|T\right| =\left|S\right|-1=k-1=2j $ und $n-1=2m$  ,dass $  \widehat{Maj_n}(S)=\widehat{Half_{n-1}}(T)$und wir somit zeigen m\"ussen das gilt:
+		 \[
+			 \widehat{Half_{2m}}([2j])=\left(-1\right)^j \frac{\binom{m}{j}}{\binom{2m}{2j}} \frac{1}{2^{2m}} \binom{2m}{m} 
+		 \] 
+%		 T ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ f (x) = E y ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¢ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹ÃƒÆ’Ã‚Â¢ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â ÃƒÆ’Ã†â€™ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¡ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¼ N ÃƒÆ’Ã†â€™Ãƒâ€ Ã¢â‚¬â„¢ÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¿Ãƒâ€šÃ‚Â½ÃƒÆ’Ã†â€™Ãƒâ€šÃ‚Â¯ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â¿ÃƒÆ’Ã¢â‚¬Å¡Ãƒâ€šÃ‚Â½ ( x ) [ f (y)]
+%		\newpage
+		Sei $ \rho \in [-1,1]$  beliebig, dann gilt: \\
+		\begin{eqnarray*}
+			T_\rho Half_{2m}\left(1, \dots ,1 \right) = & \underset{x \sim ([N_\rho((1, \dots, 1))])}{\Ez} \left[Half_{2m}(x)\right] &\\
+			=&\Pb \left[ \# \left\lbrace i:x_i=1\right\rbrace = \# \left\lbrace i:x_i=-1\right\rbrace
+%			x \	\text{hat gleich viele Eintrage =1 und =-1}
+			\right]& \\
+			  ^{\overset{\left(\Pb[x_i=1]=\frac{1}{2}+\frac{1}{2} \rho \right)}{} }\qquad {= }& \binom{2m}{m} \cdot \left( \frac{1}{2}+ \frac{1}{2} \rho \right)^m \left( \frac{1}{2}- \frac{1}{2} \rho \right)^m&= \frac{1}{2^{2m}}   \binom{2m}{m} \left(1- \rho^2 \right)^m 
+		\end{eqnarray*} \\
+		Gleichzeitig gilt aber auch nach 2.47: 
+		\begin{eqnarray*}
+			T_\rho Half_{2m}\left( 1, \dots , 1 \right) =& \sum\limits_{U \subseteq \left[2m\right]} \widehat{Half_{2m}}(U)\rho^{\left| U \right|}	&\\
+			=& \sum\limits_{i=0}^{2m} \binom{2m}{i} \widehat{Half_{2m}}\left(\left[ i \right]\right) \rho^i &=^{\overset{2j:=i}{}} \qquad \sum\limits_{j=0}^{2m} \binom{2m}{2j} \widehat{Half_{2m}}\left(\left[ 2j \right]\right) \rho^{2j} 
+		\end{eqnarray*}
+		Daraus folgt:
+		\[
+			\sum\limits_{j=0}^{ m} \binom{2m}{2j} \widehat{Half_{2m}}\left(\left[ 2j \right]\right) \rho^{2j}  =\frac{1}{2^{2m}}   \binom{2m}{m} \left(1- \rho^2 \right)^m  
+%			\RA  \sum\limits_{i=0}^{2m} \binom{2m}{i} \widehat{Half_{2m}}\left(\left[ i \right]\right) \rho^i  
+% 
+%		F\"ur $i=2j$ gilt : 
+%\\
+		\]
+%			\binom{2m}{2j} \widehat{Half_{2m}} \left(\left[ 2j \right]\right) = \frac{1}{2^{2m} } \binom{2m}{m} \cdot \left[\rho^{2j} \right]\left(1- \rho^2 \right)^m =\frac{1}{2^{2m}} \binom{2m}{m} \cdot \left( -1 \right)^j \binom{m}{j} 
+		Da wir jetzt zwei Funktionen mit gleichem Grad und gleichen Werten auf dem gesamten Definitionsbereich haben, k\"onnen wir die Koeffizienten gleichsetzen und erhalten so:
+		\[
+			\binom{2m}{2j} \widehat{Half_{2m}} \left(\left[ 2j \right]\right) = \frac{1}{2^{2m} } \binom{2m}{m} \cdot \left[\rho^{2j} \right]\left(1- \rho^2 \right)^m
+		\]
+		Hier steht nach Dividieren durch $\binom{2m}{2j} $ die gew\"unschte Gleichung.
+	 \end{proof}
+	 	 \end{satz}
+	 \begin{kor}
+		 $\widehat{Maj_n}(S)=\widehat{Maj_n}(T)$ f\"ur $\left|S \right| + \left|T \right| = n+1 $ 
+		 Also $\Wb^{n-k+1 }\left[ Maj_n \right] = \frac{k}{n-k+1} \Wb^k \left[ Maj_n \right]$ 
+
+	 \begin{proof}	 Da $ \left|S\right|=   k 
+			 \RA \quad \left|T \right|=  n+1 - \left|S\right|   = n+1-k  =n-k+1  $ gilt, folgt:
+		  \begin{eqnarray*}
+			  \widehat{Maj_n} (S) = &(-1)^\frac{k-1}{2} { \binom{\frac{n-1}{2}}{\frac{k-1}{2}}}{\binom{n-1}{k-1}}^{-1} \cdot \frac{2}{2^n}\binom{n-1}{\frac{n-1}{2}} & \\
+%			  ^{\overset{\binom{n}{k}=\binom{n}{n-k}}{}} \qquad 
+			  = & (-1)^\frac{k-1}{2} { \binom{\frac{n-1}{2}}{(\frac{n-1}{2})-(\frac{k-1}{2})}}{\binom{n-1}{(n-1)-(k-1)}}^{-1} \cdot \frac{2}{2^n} \binom{n-1}{\frac{n-1}{2}} &\\
+			  = & (-1)^\frac{k-1}{2}      { \binom{\frac{n-1}{2}}{\frac{n-k}{2}}      }{\binom{n-1}{n-k}      }^{-1} \cdot \frac{2}{2^n} \binom{n-1}{\frac{n-1}{2}}\\
+%  		^{\overset{+ \left(+1-1\right)}{}}	\qquad  = & (-1)^\frac{(k+1)-1-1}{2} \frac{ \binom{\frac{n-1}{2}}{\frac{(n-k+1)-1}{2}}}{\binom{n-1}{(n-k+1)-1}} \cdot \frac{2}{2^n} \binom{n-1}{\frac{n-1}{2}} & =\\
+			  = & (-1)^\frac{(n-k+1)-1}{2} { \binom{\frac{n-1}{2}}{\frac{(n-k+1)-1}{2}}}{\binom{n-1}{(n-k+1)-1}}^{-1} \cdot \frac{2}{2^n} \binom{n-1}{\frac{n-1}{2}} & = \widehat{Maj_n} (T) \\
+		  \end{eqnarray*}
+		  \begin{eqnarray*}
+			  \Wb^{n-k+1 }\left[ Maj_n \right] = & \sum\limits_{\overset{S \subset \left[n\right]}{\left|S\right|=n-k+1}} \widehat{Maj_n} (S)& \\
+			^{\overset{\left|S\right|=n-k+1}{}} \qquad = &\binom{n}{n-k+1} \widehat{Maj_n} (S)&\\
+			  =& \frac{n!}{\left(n-k+1\right)!\left(n-\left(n-k+1\right)\right)!} \widehat{Maj_n} (S)&\\
+  			  =& \frac{n!}{\left(n-k+1\right)!\left(k-1\right)!} \widehat{Maj_n} (S)&\\
+			  =& \frac{k}{n-k+1} \cdot  \frac{n!}{\left(n-k\right)!\left(k\right)!} \widehat{Maj_n} (S)&\\ 
+  			^{\overset{\left|T\right|+\left|S\right|=k+n-k+1=n+1}{}} \qquad  =& \frac{k}{n-k+1} \cdot  \frac{n!}{\left(n-k\right)!\left(k\right)!} \widehat{Maj_n} (T)&\\ 
+			  =& \frac{k}{n-k+1} \cdot  \binom{n}{k} \widehat{Maj_n} (T)&\\ 
+			   =& \frac{k}{n-k+1} \sum\limits_{{\overset{T \subset \left[n\right]}{\left|T\right|=k}}} \widehat{Maj_n} (T) & =\frac{k}{n-k+1} \Wb^k \left[ Maj_n \right]
+		  \end{eqnarray*}
+	 \end{proof}
+	 	 \end{kor}
+	 \begin{lemmas} \label{lemma probability}
+		Sei $ l(x)=a_1 x_1 + \dots a_n x_n $, wobei $ \sum_{i} a_i^2=1 $.\\
+		 Dann gilt $ \forall s \ge 1$ : $\Ez \left[ \ez_{\left\lbrace |l(x)| > s \right\rbrace} |l(x) |  \right] \le (2s+2) e^{-\frac{s^2}{2}} $.
+
+	 \begin{proof}
+		Es gilt: \[
+			\Ez \left[ \ez_{\left\lbrace |l(x)| >s \right\rbrace} \cdot |l(x) | \right] = s \Pb \left[|l(x)| > s \right] + \int\limits_{s}^{\infty} \Pb \left[ |l(x)| >u\right] du \\
+			\overset{H\"offdings bound}{\le } 2s e^{-\frac{u^2}{2}}+  \int\limits_{s}^{\infty} 2 e^{-\frac{u^2}{2}} du 
+		\]
+		Und f\"ur $s \ge 1 $ gilt 
+		\[ 
+			 \int\limits_{s}^{\infty} 2 e^{-\frac{u^2}{2}} du \le  \int\limits_{s}^{\infty} u \cdot 2 e^{-\frac{u^2}{2}} du = 2 e^{-\frac{s^2}{2}}  \ .
+		\]
+		Daraus folgt nach Einsetzen der zweiten in die erste Unleichung unsere Behauptung.
+	 \end{proof}
+	 	 \end{lemmas}
+	 %Anmerkung: Nach Satz 2.58 gilt: $\Wb^1[f] \leq \frac{2}{\pi}+o_n(1)$, wenn alle $\widehat{f}(i) gleich sind.
+%	 \begin{defn}
+%		Eine Funktion $f$ heisst $( \varepsilon , 1) $ -regul\"ar, wenn $\left|\widehat{f} (i) \right|	 \leq \varepsilon \ \ \forall i \in [n] $ gilt.
+%		
+%	 \end{defn}
+	 \newpage
+%	 \section{Central-Limit-Theorem}
+	 \section{Grad-1- Gewichte}
+	 \label{weights}
+	 Die ersten zwei S\"atze dieses Abschnitts brauchen wir, um Aussagen \"uber Funktionen mit einem hohen Fouriergewicht in kleinem Grad zu beweisen, was das eigentliche Ziel ist.
+	 \begin{thm}[Berry-Esseen (Central-Limit-Theorem)]\label{CLT}
+		 Seien $X_1, \dots , X_n$ unabh\"angig verteilte Zufallsvariabeln mit $ \Ez[X_i] = 0 $ und $Var(X_i) = \sigma_i^2 $ und nehmen an, dass $ \sum\limits_{i=1}^{n} \sigma_i^2=1 $.\\
+		  Sei $ S = \sum\limits_{i=1}^{n} X_i$ und $N \sim N(0,1) $ , dann gilt $ \forall u \in \Rz $ und $\gamma = \sum\limits_{i=1}^{n} \left\lVert X_i \right\rVert_3^3 $ :
+		 \[
+			 \left|\Pb[S \le u]- \Pb  [Z \le u] \right| \le \gamma c
+		 \]
+		 f\"ur eine universelle Konstante c.
+	 \end{thm}
+	 
+	 \begin{thm}\label{5.16}
+		 Seien $a_1 \dots a_n \in \Rz : \sum_{i} a_i^2=1$ und $\left| a_i \right| \le \varepsilon \ \forall i $ ,\\
+		 dann gibt es eine universelle Konstante $C$, sodass gilt $ \left| \underset{x \sim \left\lbrace -1,1 \right\rbrace^n }{\Ez} \left[ \left| \sum a_i x_i \right| \right] -\sqrt{\frac{2}{\pi}}\right| \le C \varepsilon $ .
+	 \begin{proof}
+		 \begin{eqnarray*}
+			 Var(a_ix_i)= & a_i^2\cdot Var(x_i)  \ \text{f\"ur} \  x_i \sim \left\lbrace -1,1 \right\rbrace \\
+			  \RA a_i^2= &\sigma_i^2&  \\
+			  a_1 \dots a_n \in \Rz : &\sum\limits_{i} a_i^2=1= \sum\limits_{i=1}^{n} \sigma_i^2  \\
+			 \underset{x \sim \left\lbrace -1,1 \right\rbrace^n }{\Ez} \left[x_i\right]=& 0 \ \RA 
+			 \underset{x \sim \left\lbrace -1,1 \right\rbrace^n }{\Ez} \left[a_i x_i\right]= & 0 
+		 \end{eqnarray*} 
+	 \end{proof}
+	 	 \end{thm}
+%\newpage
+%	 \section{Grad-1- Gewichte}
+	 \begin{satz}[Level-1 Inequality oder Chang-Ungleichung]    $\qquad$ \vphantom{jasjjdasjdasjdsaj} \\
+	 		 Habe $f:\left\lbrace -1,1 \right\rbrace^n \to \left\lbrace 0,1 \right\rbrace $ einen {Erfahrungswert} $ \Ez[f]= \alpha \leq \frac{1}{2} $, dann gilt 
+	 		 $ \Wb^1[f] \leq (\alpha^2 log( \frac{1}{\alpha})) $\\
+	 		 (Im Fall $ \alpha \geq\frac{1}{2}$ ersetzen wir $f $ durch $1-f$ ).\\
+	 	 \begin{proof}
+	 	 	Sei $f: \left\lbrace -1,1 \right\rbrace^n \to \left[ -1,1 \right] $ und $ \alpha = \Ez \left[ \left| f \right|\right] $.  \\
+	 	 	Wir k\"onnen annehmen, dass $\sigma = \sqrt{\Wb^1\left[ f \right]} > 0 $ . \\
+%	 	 	F\"ur $ l:=\frac{1}{\sigma} f^{=1}$ gilt 
+	 	 		 		 Wir schreiben jetzt vorerst \[ l(x) := \frac{1}{\sigma} f^{=1}(x) = \frac{\widehat{f}(1)}{\sigma}x_1 + \dots +   \frac{\widehat{f}(n)}{\sigma}x_n \] und es folgt:
+	 	 	\begin{eqnarray*} 
+	 		 	 \left\langle f,l \right\rangle =&  \frac{1}{\sigma} \left\langle f, f^{=1} \right\rangle \\
+	 		 	 =& \frac{1}{\sigma} \Wb^1[f] & = \sigma \quad 		 \\
+	 			\RA  \forall s \ge 1 \qquad \sigma = & \left\langle f,l \right\rangle & \\
+	 			=& \Ez \left[ \ez_{\left\lbrace |l(x)| \le s \right\rbrace } \cdot f(x)l(x) \right] + \Ez \left[ \ez_{\left\lbrace |l(x)| > s \right\rbrace } \cdot f(x)l(x) \right]  &\\
+	 			\le & \Ez \left[s \left| f(x) \right| \right] +  \Ez \left[ \ez_{\left\lbrace |l(x)| > s \right\rbrace } \cdot f(x)l(x) \right]  &\\
+	 			^{\overset{\ref{lemma probability}}{}} \qquad {\le} &\Ez \left[s \left| f(x) \right| \vphantom{\big|} \right] + (2s+2) e^{-\frac{s^2}{2}}  &\\
+	 			\le & \alpha s  + (2s+2) e^{-\frac{s^2}{2}} & \\
+	 			^{\overset{s\ge 1}{} }\qquad {\le} & \alpha s  + 4s e^{-\frac{s^2}{2}} 
+	 		\end{eqnarray*} \\
+	 		Wir finden ein optimales $s$ und f\"ur  $s=\left(\sqrt{2} + o_{\alpha } (1) \right)  \sqrt{ln( \frac{1}{\alpha })} $ gilt :
+	 		\[
+	 			\sigma \le \left(\sqrt{2}+o_{\alpha}(1)\right) \alpha \sqrt{ln \frac{1}{\alpha}} \qquad \RA \qquad \sigma^2 \\
+	 			\le \left(2 + o_{\alpha } (1) \right) \alpha^2 ln \frac{1}{\alpha}
+	 		\]
+	 		Das zeigt unsere Behauptung.
+	 	 \end{proof}
+	 \end{satz}
+	 \begin{satz}[$\frac{2}{\pi}$ Theorem ]
+		 Sei $f: \left\lbrace -1,1 \right\rbrace^n \to \left\lbrace -1,1 \right\rbrace : \left| \widehat{f}(i) \right| \leq \varepsilon $, dann gilt $ \Wb^1 [f]\leq \frac{2}{\pi} + O(\varepsilon )$ .\\
+		 Wenn $\Wb^1[f] \geq \frac{2}{\pi } -\varepsilon $, dann ist $f $ sogar $ O(\sqrt{\varepsilon})$- nah zu der LTF $\sgn (f^{=1})$.
+
+	 
+	 \begin{proof}
+		Wir k\"onnen annehmen, dass $\sigma = \sqrt{\Wb^1[f]} > \frac{1}{2} $ gilt. \\
+		 Sei $l=\frac{1}{\sigma} f^{=1} , \ \text{dann gilt} \ \lVert l \rVert =1 $ und $\left| \widehat{l}(i) \right| \le  2 \varepsilon \ \forall i \in  [n]$ 	 
+		\[
+			\sigma = \left\langle f,l \right\rangle \le \Ez \left[ \left| l\right|\right] \overset{\ref{5.16}}{\le} \sqrt{\frac{2}{\pi}}+C \varepsilon 
+		\]
+	 
+		 Sei $f:\left\lbrace -1 ,1 \right\rbrace^n \to \left\lbrace 0,1 \right\rbrace $ und $ \alpha = \Ez [f] $ , dann gilt f\"ur $L(x)=f^{=1}(x)=\hat{f}(1)x_1+ \dots \hat{f}(n)x_n$ $ \Wb^1 [f] \overset{Plancherel}{=} \Ez [f(x)L(x)] $. \\
+		 W{\"a}hle $t$, sodass gilt $ \Pz[L(x)\geq t] \approx \alpha $ .\\
+		 \\
+		 \[\RA    \Wb^1[f] = \Ez[f(x)L(x)] \overset{f(x)=1 \ \text{f\"ur eine Fraktion } \ \alpha}{\leq} \Ez[\ez_{(\Lz(x)\geq t)}  \cdot L(x) ]  \] \\
+%		 \newpage
+		 Da $L(x)$ eine Summe von unabh\"angig auf $ \left\lbrace \pm 1 \right\rbrace $ verteilten Bits ist, gilt $\bar {\Ez } =0$ und $ \sigma = \sqrt{\Wb^1[f]}$ , daraus folgt nach \ref{CLT} , dass sich $L(x)$ f\"ur $ \left| \widehat{f}(i) \right| $ wie  $\Zb \sim N (0, \sigma^2) $ verh\"alt.\\
+		 F\"ur $\alpha = \frac{1}{2} $ folgt  $t=0$ und es gilt $ \sigma^2 = \Wb^1[f] \leq \Ez [\ez_{ \left\lbrace L(x) \geq 0 \right\rbrace } \cdot L(x) ] \approx \Ez[\ez_{\left\lbrace \Zb \geq 0 \right\rbrace } \cdot \Zb ]= \frac{1}{\sqrt{2 \pi }}\sigma$ , woraus $\sigma^2  \lessapprox \frac{1}{2 \pi} $ folgt.\\
+		 F\"ur $\alpha $ klein folgt aus\ 
+		 $
+		  \Pz [\Zb \geq t]=\int_{t}^{\infty} \frac{1}{\sqrt{2 \pi \sigma^2}} e^{-\frac{x^2}{2 \pi^2} } dx  =  \frac{1}{\sqrt{2 \pi \sigma^2}} \cdot \left( e^{-\frac{}{}} \right) 
+		 $ , \text{dass gilt } $  t \sim \sigma \sqrt{2 ln  \left( \frac{1}{\alpha} \right) }$.
+		\begin{eqnarray*}
+			\RA  \Wb^1[f] \leq & \Ez [\ez_{ \left\lbrace L(x) \geq t \right\rbrace } \cdot L(x) ] & \\
+			&\approx \alpha \cdot \sigma \sqrt{2 ln\left( \frac{1}{\alpha}\right)}& \\
+			& \frac{1}{2} \sigma  \sqrt{2 ln 2}& \\
+		\end{eqnarray*}
+		\begin{eqnarray*}
+		\RA \qquad \sigma \lessapprox &\frac{1}{2} \sqrt{2 ln 2}& \\
+		\RA \qquad \sigma^2 \lessapprox & \frac{2 ln 2}{4} & \\
+		=& \frac{ln 2}{2} &< \frac{2}{\pi}
+		\end{eqnarray*}
+		Sei $ f:\left\lbrace -1,1 \right\rbrace^n \to \left[ -1,1 \right]$ und  $\alpha=\Ez[\left| f\right|] $ und sei $\Wb^1\left[f\right]\ge \frac{2}{\pi}-\pi$.\\
+\begin{eqnarray*}
+		\RA \qquad \sigma \ge &\sqrt{\frac{1}{\pi}-\varepsilon}&\ge \sqrt{\frac{2}{\pi}}-2\varepsilon \\
+		\RA \qquad (C+2) \varepsilon =& C\varepsilon+\frac{2}{\pi} -(\frac{2}{\pi}-2\varepsilon)&\\
+		(\star) \qquad \ge &  \Ez \left[ \left| l\right|\right] - \left\langle f,l \right\rangle & = \Ez\left[\left(sgn\left(l(\xb)\right)-f(\xb)\right)l(\xb)\right]
+\end{eqnarray*}
+		Nach \ref{CLT} gilt
+		\[ 
+		Pr[\left|l\right|\le K \sqrt{\varepsilon} ] \le Pr[ | N(0, 1) | \le K\sqrt{\varepsilon} ] +.56 \cdot2 \varepsilon \le \frac{1}{\sqrt{2\pi}}2K \sqrt{\varepsilon} + 1.12 \varepsilon \le 2K \varepsilon 
+		\] 
+		$\forall K\ge 1$.\\
+		Aus $\Pz \left[f \neq sgn(l) \right] \ge 3 K \sqrt{\varepsilon}$ folgt $\Pz \left[f(\xb ) \neq sgn(l(\xb)) \wedge \left|l(\xb)\right|> K \sqrt{\varepsilon}\right] \ge K\sqrt{\varepsilon}$.\\
+		Dann sieht man leicht $ \Ez\left[\left( sgn ( l( \xb))-f(\xb) \right) l( \xb)\right]  \ge K \sqrt{\varepsilon} 2(K \sqrt{\varepsilon})=2K^2 \varepsilon$, was f\"ur $K > \sqrt{C+2}$ zu einem Widerspruch mit $(\star)$ f\"uhrt.\\
+		Also muss $\Pz \left[f \neq sgn(l) \right] \le 3 \sqrt{C+2} \sqrt{\varepsilon}$ gelten, was unsere Aussage beweist.
+	 \end{proof}
+	 	 \end{satz}
+	 	 Die zwei eben gezeigten S\"atze geben uns ein besseres Verst\"andnis von boolschen Funktionen mit grossem Fouriergewichten in niedrigen Graden.
+	 	 \newpage
+	 	 
+	 	 
+	 \section{Peres Theorem}
+	 Dieser Abschnitt besch\"aftigt sich jetzt damit, Peres Theorem mit einfachen Mitteln zu beweisen und uns so ein Verst\"andnis der St\"orungsempfindlichkeit von boolschen Funktionen zu vermitteln.
+	 \begin{defn}
+		 Sei $\cB$ eine Klasse von boolschen Funktionen . Wir sagen ,dass $ \cB $ gleichm\"a{\ss}ig noise stabil ist, wenn $ \exists \varepsilon$, sodass $ \left[0,\frac{1}{2}\right] \to \left[0,1\right]$ mit $ \lim\limits_{\delta \searrow 0^+}\varepsilon(\delta) \to 0$, sodass $NS_\delta \left[ f \right]  \le \varepsilon(\delta) \ \forall f \in \cB $.
+	 \end{defn}
+	 \begin{thm}
+		 Sei $\delta \in \left( 0, \frac{1}{2} \right] $ und sei $A: \Nz^+ \to \Rz $. Sei nun $\cB$ eine Klasse von boolschen Fktionen ,die unter Negation und Identifikation von Variabeln abgeschlossen ist. Angenommen $f \in \cB$ mit Definitionsbereich $ \left\lbrace -1,1 \right\rbrace^n $ hat einen Einfluss $ I[f] \le A(n)$, dann gilt $\forall f \in \cB \quad NS_\delta[f] \le \frac{1}{m} A(m)$ , wobei $ m = \left\lfloor \frac{1}{\delta} \right\rfloor$
+
+	 \begin{proof}
+			 W\"ahle $ \cB \ni f: \left\lbrace -1 ,1 \right\rbrace^n \to \left\lbrace -1, 1 \right\rbrace$. Da noise stability eine wachsende Funktion des noise Parameters ist, k\"onnen wir $ \delta $ durch das gr\"o{\ss}ere $ \frac{1}{m} $ ersetzen. Also m\"ussen wir $NS_{\frac{1}{m}}[f]=\Pb[f(x) \neq f(y) ]$ f\"ur $x,y \in \left\lbrace -1,1 \right\rbrace^n$ nach oben beschr\"anken, wobei $x \sim \left\lbrace -1 ,1 \right\rbrace^n$ und $y \in \left\lbrace -1, 1 \right\rbrace^n$  durch eintragweises Negieren mit Wahrscheinlichkeit $\frac{1}{m}$ aus $x$ erzeugt wird.
+		 Sei $z \in \left\lbrace -1 ,1 \right\rbrace^n $ und  sei $ \pi: \left[ n \right] \to \left[ m \right] $ eine Zerlegung von $[n]$ in $m$ Teile . Definiere 
+		 \begin{eqnarray*}
+			 g_{z,\pi }:&\left\lbrace -1,1 \right\rbrace^m \to & \ \left\lbrace -1,1 \right\rbrace \\
+			 & g_{z,\pi }\left(w\right)=& f( z \circ w^\pi )
+		\end{eqnarray*}
+
+		 wobei $ \circ $ die eintragweise Multiplikation ist und $w^\pi = \left(w_{\pi(1)}, \dots, w_{\pi(n)} \right) \in \left\lbrace -1, 1 \right\rbrace^n $.\\
+		 Da $g_{z,\pi}$ durch Negieren und Vertauschen aus $f$ entsteht, liegt es auch in $ \cB$ .\\
+		 Nach Annahme hat  $g_{z,\pi}$ einen totalen Einfluss von $\Ib [g_{z,\pi}] \le A(m)$ und deshalb einen durchschnittlichen Einfluss $\cE [g_{z,\pi}] =\frac{1}{m}\Ib \left[g_{z,\pi} \right]\le \frac{1}{m}A(m)$. \\
+		 Seien $z \sim \left\lbrace -1, 1 \right\rbrace^n $ und $\pi: [n] \to [m]$ uniform zuf\"allig gew\"ahlt.Dann folgt :
+		 \[
+			 \underset{{z, \pi} }{\Ez} \left[\cE \left[g_{z,\pi}\right]\right] \le \frac{1}{m} A(m)
+		 \]
+		 Hier werden wir jetzt zeigen, dass 
+		 \[
+			 \underset{{z, \pi} }{\Ez} \left[\cE \left[g_{z,\pi}\right]\right]=NS_{\frac{1}{m}}\left[f\right] \ .
+		 \]
+		 Sei $w \sim \left\lbrace -1,1 \right\rbrace^m$ und $j \sim \left[ m \right] $ uniform zuf\"allig verteilt und f\"ur $J= \pi^{-1}(j) \sim \subseteq [n]$, wobei jede Koordinate mit Wahrscheinlichkeit $\frac{1}{m}$ enthalten ist; definiere $\lambda \in \left\lbrace -1 ,1 \right\rbrace^n$ durch $\lambda_i=-1 \LRA i \in J $.\\
+		 \begin{eqnarray*}
+			 \underset{{z, \pi} }{\Ez} \left[ \cE \left[ g_{z,\pi } \right]\right] =& \underset{{z,\pi,w,j}}{\Pb} \left[  g_{z,\pi }\left(w\right) \neq g_{z,\pi }\left(w^{\oplus j }\right) \right] &= \\
+			 ^{\overset{\text{Anwenden von} \ g}{}}=& \underset{{z,\pi,w,j}}{\Pb} \left[ f \left( z \circ w^\pi \right) \neq f \left( z \circ \left( w^{\oplus j}\right)^\pi \right)\right] &= \underset{{z,\pi,w,j}}{\Pb} \left[ f \left( z \circ w^\pi \right) \neq f \left( z \circ  w^\pi \circ \lambda \right) \right]
+		 \end{eqnarray*}
+		 Ersetzen wir $z$ durch $z \circ w^\pi $ (beide sind uniform auf $\left\lbrace -1,1 \right\rbrace^n$ verteilt) erhalten wir:
+		 \[
+		  \underset{{z,\pi,w,j}}{\Pb} \left[ f \left( z \right) \neq f \left( z  \circ \lambda \right) \right]=NS_{\frac{1}{m}}\left[f\right]
+		 \]
+	 \end{proof}
+	 	 \end{thm}
+	 \begin{satz}[Peres Theorem ]\label{peres}
+		 Sei $f:\left\lbrace -1 ,1 \right\rbrace^n \to \left\lbrace -1,1 \right\rbrace $ eine beliebige LTF, dann gilt:\\
+		  $NS_\delta \left[ f \right] \le O( \sqrt{\delta }) $ .
+
+	 \begin{proof}
+		 Sei $\cB$ die Klasse der aller LTFs. Diese Klasse ist abgeschlossen unter Negieren und Tauschen der Variablen. 
+		 Da jede LTF auf $m$ bits \textit{unate} (monoton bis auf Negation einiger Koordinaten) ist, ist ihr gesamter Einfluss  h\"ochstens $\sqrt{m}$ .\\
+		 Mit dem Theorem von eben erhalten wir f\"ur eine beliebige LTF f und ein beliebiges $\delta \in \left(0, \frac{1}{2}\right] $,\ dass
+		 \[
+			 NS_\delta\left[ f \right] \le \frac{1}{m} \sqrt{m} =\frac{1}{\sqrt{m}} \le O(\sqrt{\delta})
+		 \] gilt.
+	 \end{proof}
+	 	 	 \end{satz}
+	 
+	 \section{Ausblick}
+	 Die beiden folgenden Annahmen sollen dem geneigten Leser einen Ausblick auf einige noch zu beweisende \bzw \ zu widerlegende Aussagen geben.
+	\begin{annahme}[Majority is least stable]
+%		  
+		Sei $ f: \left\lbrace -1,1 \right\rbrace^n \to \left\lbrace -1 ,1 \right\rbrace$ eine LTF, $n$ ungerade. \\
+		Dann gilt $ \forall \rho \in \left[0,1 \right] $ , $ Stab_\rho \left[f \right] \ge Stab_\rho \left[ Maj_n \right] $
+	\end{annahme}
+	F\"ur LTFs gilt das, aber die Verallgemeinerung auf PTFs ist noch nicht gelungen.
+%	
+	\begin{annahme}[Grotsman-Linial]
+		Sei $f \in \cP_{n,k}$ . Dann ist $I[f] \le O_k(1)\sqrt{n}$
+	\end{annahme}
+	
+	
+
+	\section*{Notation}
+	\addcontentsline{toc}{section}{Notation}
+	Die Notationen wurden aus der Quelle \cite{booleananalysis} \"ubernommen.\\
+	\begin{math}
+		\begin{array}[\textwidth]{l l }
+			\hline	\left[n\right] & \left\lbrace 1, \dots , n \right\rbrace\\
+			N(0,1) & \text{die Standardnormalverteilung} \\
+			N(0,1)^d & \text{die Verteilung von} \ d \ \text{unabh\"angigen Standardnormalverteilungen} \\
+			N_\rho(x) & \text{f\"ur} \ x \in \left\lbrace -1, \right\rbrace^n, \text{die Zufallsverteilung einen} \ \rho-\text{korrelierten String zu } \ x \ \text{generieren}    \\
+			N_\rho(z) & \text{f\"ur} \ z \in \Rz^n, \text{die Zufallsverteilung} \ \rho z + \sqrt{1-\rho^2} \ \gb ,\ \text{wobei} \ \gb \sim N(0,1)^n \\		
+				& \text{Dies sind beides Verteilungen von zuf\"allig "gest\"orten" \ Werten der Eingabe} \\
+			{{ \widehat{\lVert} f \widehat{\rVert} }_p} & \left( \sum\limits_{\gamma \in \widehat{\Fz_2^n}} \left|  \widehat{f} (\gamma )\right|^p \right)^{\frac{1}{p}}\\
+			T_\rho & \text{St\"orungsoperator}: T_\rho f(x)=\underset{\yb \sim N_\rho(x)}{\Ez}\left[f(\yb)\right]\\
+			\xb \sim \left\lbrace -1,1 \right\rbrace^n  & \text{Zufallsvariable} \ \xb \ \text{ist uniform auf } \ \left\lbrace-1,1 \right\rbrace^n \ \text{verteilt}\\
+			\xb \sim A  & \text{Zufallsvariable} \ \xb \ \text{ist uniform auf } \ A \ \text{verteilt}\\
+			\Nb\Sb_\delta \left[f \right] & \text{die "noise sensitivity" von} \  f \text{bei} \ \delta\\
+			\hat{f}(S) & \text{der Fourierkoeffizient von} \ f \text{auf dem Charakter} \ \chi_S\\
+			f^{=k} & \sum\limits_{\left|S\right|=k} \hat{f}(S)\chi_S \\
+			f^{\leq k} & \sum\limits_{\left|S\right|=k} \hat{f}(S)\chi_S \\
+			x^{i \mapsto b} & (x_1, \dots , x_{i-1},b,x_{i+1}, \dots ,x_n)\\
+			x^{\oplus i} & (x_1, \dots , x_{i-1},-x_i,x_{i+1}, \dots ,x_n)\\
+			\Wb^k\left[f\right] & \text{das Fouriergewicht von} \ f \ \text{in Grad} \ k\\
+			\Wb^{>k} \left[f\right] & \text{das Fouriergewicht von} \ f \ \text{in Grad gr\"osser} \ k\\
+			\Ib\nb\fb_i\left[f\right] & \text{der Einfluss eines einzelnen Bits} \ \Ib\nb\fb_i\left[f\right]= \underset{x \sim \left\lbrace -1,1 \right\rbrace^n}{\Pb } \left[f(x) \neq f(x^{\oplus i})\right] \\
+			\Ib \left[f\right] & \text{der totale Einfluss einer Funktion} \ \Ib \left[f\right] = \sum \Ib\nb\fb_i\left[ f \right] \\
+			\cE\left(f \right) & \text{der durchschnittliche Einfluss} \ f:\left\lbrace -1, 1 \right\rbrace^n \to \Rz : \ \cE\left(f\right) = \frac{1}{n} \Ib\left[f\right]\\
+			\hline
+		\end{array}
+	\end{math}
+	
+	\addcontentsline{toc}{section}{Literatur}
+	% Literaturliste endgueltig anzeigen
+	\bibliography{literatur}
+\end{document}
+
