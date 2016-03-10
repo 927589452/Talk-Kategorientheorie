@@ -9,5 +9,12 @@ done
 2.1
 2.2
 
+tex exercises
+
+
 have excercises corrected
+
+
+setup commit hooks to autmatically render tex show pdf and clean up afterwards
+
 
