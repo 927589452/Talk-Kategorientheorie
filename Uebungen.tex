@@ -4,12 +4,11 @@
 
 \documentclass{article}
 \usepackage[left=3cm,right=3cm]{geometry}
- \renewcommand*\baselinestretch{1.4}% 
 \usepackage{lmodern}
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[ansinew]{inputenc}
-\usepackage{tikz}
+\include{./packages}
 \usetikzlibrary{3d,calc}
 \usetikzlibrary{arrows}
 \usepackage{amsmath}
@@ -27,8 +26,6 @@
 
 \author{Jens Heinrich}
 \date{16. Juni 2015}
- 
- 
 
  
 \begin{document}
@@ -38,12 +35,12 @@
 	In einem Dreieck 
 
 	%Insert Diagram here
-	\include{'diagramm_dreieck_easy.tikz'}
+	\include{./files/diagrams/diagramm_dreieck_easy.tikz}
 	in einer Kategorie seinen zwei der drei Morphismen Isomorphisen.
 	Zeige, dass dann der dritte Morphismus ebenfalls ein Isomorphismus ist.
-	\begin{proof}
+
 		Wir beginnen mit einer Fallunterscheidung, danach welcher der drei Morphismen noch kein Isomorphismus ist.
-	\end{proof}
+
+	\include{./files/diagrams/example_diagram.tikz}
 
 \end{document}
-
