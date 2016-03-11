@@ -8,19 +8,13 @@
 \usepackage[ngerman]{babel}
 \usepackage[T1]{fontenc}
 \usepackage[ansinew]{inputenc}
-\include{./packages}
-\usetikzlibrary{3d,calc}
-\usetikzlibrary{arrows}
-\usepackage{amsmath}
-\usepackage{amssymb}
+\input{./Packages}
+\input{./Packages_tikz}
+\input{./Packages_math}
 \usepackage{bm}
-\usepackage{nicefrac}
 \usepackage{mathepakete}
 \usepackage{/usr/local/share/texmf/tex/latex/shortcuts}
 \usepackage{shortcuts}
-\renewcommand{\ez}{\mathbf{1}}
-\DeclareBoldMathCommand{\T}{T}
-\DeclareBoldMathCommand{\p}{p}
 
 \title{\"Ubungen zum Seminar \boldfont{Kategorientheorie} }
 
@@ -35,12 +29,11 @@
 	In einem Dreieck 
 
 	%Insert Diagram here
-	\includeonly{./files/diagrams/diagramm_dreieck_easy.tikz}
+	\includestandalone{./files/diagrams/diagramm_dreieck_easy.tikz}
 	in einer Kategorie seinen zwei der drei Morphismen Isomorphisen.
 	Zeige, dass dann der dritte Morphismus ebenfalls ein Isomorphismus ist.
 
 		Wir beginnen mit einer Fallunterscheidung, danach welcher der drei Morphismen noch kein Isomorphismus ist.
 
-	\include{./files/diagrams/example_diagram.tikz}
 
 \end{document}
