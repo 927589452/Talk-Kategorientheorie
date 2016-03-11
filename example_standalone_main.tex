@@ -1,0 +1,15 @@
+% Main document
+\documentclass{book}
+% Repeat required preamble stuff or use `subpreambles` option of the `standalone` package
+\usepackage{tikz}
+%\usetikzlibrary{...}
+\usepackage{standalone}
+\begin{document}
+Text ...
+\begin{figure}
+  \includestandalone[width=\textwidth]{./files/diagrams/mytikz}%     without .tex extension
+  % or use \input{mytikz}
+  \caption{My TikZ picture}
+  \label{fig:tikz:my}
+\end{figure}
+\end{document}
