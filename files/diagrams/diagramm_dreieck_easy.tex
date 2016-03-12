@@ -2,8 +2,18 @@
 \input{standalone_header}
 \begin{document}
 	\begin{tikzcd}[
-		row sep=30pt
-		, column sep=25pt
+		every matrix/.append style={name=m} ,
+		execute at end picture={
+			\draw [<-] 
+			([yshift=10pt]m-2-2.north) 
+			arc[
+				start angle=-90,
+				delta angle=270,
+				radius=10pt
+			];
+		},
+		row sep=30pt ,
+		column sep=25pt
 		]
 		A \ar{rr}{f} \ar{dr}[swap]{g} 
 		&
