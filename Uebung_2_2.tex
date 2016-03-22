@@ -58,12 +58,7 @@ Zeige, dass man auf diese Weise eine Kategorie \Par erh\"alt.
 		\begin{math}
 			\Ob \left( \Par \right) = 
 			\left\lbrace
-				\left(
-					f,U
-				\right)
-				\vert f \in \Hom(X,Y) 
-				\hat
-				U \subseteq X
+				x
 			\right\rbrace 
 			\subset \Set
 		\end{math}
@@ -71,5 +66,44 @@ Zeige, dass man auf diese Weise eine Kategorie \Par erh\"alt.
 	\item 	 
 		\begin{math}
 			\Hom_\Par \left( X,Y) =
-			\left\lbrace f:X
+			\left\lbrace 
+				\left( f, U \right)
+				\vert U \subset X 
+				\hat 
+				f:U \to Y
+			\right\rbrace
+		\end{math}
+	\item	
+		Seien 
+		\begin{math}
+			A,B,C	
+		\end{math}
+		aus
+		\begin{math}
+			\Ob{\Par}
+		\end{math}
+		und 
+		\begin{math} 
+			\left( f,U \right) \in \Hom_\Par \left( A,B \right),
+			\left( g,V \right)  \in \Hom_\Par \left( B,C \right)
+		\end{math}
+		,
+		dann ist 
+		\begin{math}
+			\left( g,V \right) \circ \left( f,U \right) \in \Hom_\Par \left( A,C \right)
+		\end{math}
+		definiert als
+		\begin{math} 
+			\left(h,W) 
+		\end{math}
+		,
+		wobei 
+		\begin{math}
+			W:= f^{-1} \left( V \right)
+		\end{math}
+		und
+		\begin{math}
+			h \left(x\right) = g \left( f \left( x \right) \right)
+		\end{math}
+
 \end{itemize}
