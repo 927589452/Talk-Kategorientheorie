@@ -63,9 +63,9 @@
 			\end{math} 	
 			einen ausgezeichneten Morphismus 
 			\begin{displaymath}
-				\Id_A \in \Hom_\CatC ( A,A) ,
+				\id_A \in \Hom_\CatC ( A,A) ,
 			\end{displaymath}
-			welchen wir die \emph{Identit\"at} nennen.
+			welchen wir die \emph{identit\"at} nennen.
 		\end{itemize}
 		Diese Daten m\"ussen den folgenden Regeln gen\"ugen:
 		\begin{itemize}
@@ -81,13 +81,13 @@
 			\begin{math}
 				A \to D.
 			\end{math}
-			\item Die Identit\"aten sind \emph{beidseitig neutral} \bzgl der Komposition: F\"ur jeden \Mor 
+			\item Die identit\"aten sind \emph{beidseitig neutral} \bzgl der Komposition: F\"ur jeden \Mor 
 			\begin{math}
 				f: A \to B
 			\end{math}
 			in \CatC gilt
 			\begin{displaymath}
-				f \circ \Id_A = f = \Id_B \circ f
+				f \circ \id_A = f = \Id_B \circ f
 			\end{displaymath}
 		\end{itemize}
 		\
@@ -108,7 +108,7 @@
 			\item	\( Ob \CatVect_K = \left\lbrace V | V \text{ist} K-\text{Vektorraum} \right\rbrace  = \left\lbrace K^n | n \in \BN \right\rbrace \)
 			\item F\"ur  \( A=K^n , B =K^m , n,m \in \BN \text{aus} Ob\CatVect_K) \) existieren $K$-lineare Abbildungen, diese stellen \( \Hom_{\CatVect_K}\left( A,B \right) \) dar
 			\item Die Verkn\"upfung entspricht der Matrixmultiplikation der Abbildungsmatrizen 
-			\item \( \Id_A = E_n \) f\"ur \( K^n , n \in \BN \)
+			\item \( \id_A = E_n \) f\"ur \( K^n , n \in \BN \)
 		 \end{itemize}
 		 Die f\"ur die Verkn\"upfung von Morphismen geforderten Eigenschaften folgen sofort aus den Eigenschaften der Matrixmultiplikation.
 		 
@@ -119,7 +119,7 @@
 			 \item \(\Ob \) = \BN
 			 \item \(  \Hom(A,B) = A \leq B \)
 			 \item \( A \leq B \wedge B \leq  C \rightarrow A \leq C \)  (da eine Pr\"aordnung transitiv ist) 
-			 \item \( \Id_A \): \( A \leq A \) (da eine  Pr\"aordnung reflexiv ist)
+			 \item \( \id_A \): \( A \leq A \) (da eine  Pr\"aordnung reflexiv ist)
 		 \end{itemize}
 		 
 		 Definition (Gruppoid) 
@@ -129,13 +129,16 @@
 		 
 		 Beispiel(Fundamentalgruppoid)\cite[ Aufgabe 2.24 ]{Bra}
 		 Sie X ein topologischer Raum
-		 \begin{itemize}
-			 \item \(\Ob \left( \Pi \left( X \right) \right) = x \in X \)
+		\begin{itemize}
+			\item \(\Ob \left( \Pi \left( X \right) \right) = x \in X \)
 			 \item Seien \( x ,y \in X ) \), dann ist \( \Hom(x,y) \) die Homotopieklasse der Pfade von x nach y
-			 \item Die Verkn\"upfung der \Hom ist das aneinanderh\"angen von Pfaden.
+			 \item Die Verkn\"upfung der \Hom \ ist das aneinanderh\"angen von Pfaden.
 			 \item \(  \id_x \) ist der konstante Pfad \( w(t)=x \forall t \in [0,1] \)
-		 \end{itemize}
-			 
+		\end{itemize}
+		Jetzt m\"ussen wir \"uberpr\"ufen, ob die Eigenschaften der Verkn\"upfung gegeben sind.
+		Es ist offensichtlich, dass das Vor- oder Nachschalten eines konstanten Weges hier keine Veraenderung bringt, somit gilt f\"ur einen beliebigen Weg 
+		\(w:x \to y \) mit \( x,y \in X\):
+		\( \id_y \circ w = w = w \circ \id_x \)
 		 
 \bibliographystyle{plain}
 \bibliography{Bibilography} 
