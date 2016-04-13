@@ -14,6 +14,10 @@
 \input{./Abbreviations}
 \input{./Abbreviations_math}
 \usepackage{bm}
+\bibliography{sources}
+\bibliographystyle{alpha}
+
+
 \title{Ausarbeitung zum Seminar Kategorientheorie}
 
 
@@ -30,6 +34,7 @@
 	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen koennen. Der Aufbau folgt dem Aufbau der Quelle \nocite{Bra}.
 \section{Der Begriff der Kategorie}
 	
+		\begin{def}[Kategorie]
 		Definition(Kategorie)\cite[Definition 2.2.2]{Bra}
 		Eine \emph{Kategorie} \CatC besteht aus den folgenden Daten:
 		\begin{itemize}
@@ -93,14 +98,15 @@
 				f \circ \id_A = f = \id_B \circ f
 			\end{displaymath}
 		\end{itemize}
-		\
+		\end{def}
 		Was  diese Definition bedeutet werde ich nach kurzem Ausholen an einem Beispiel zeigen.
 		Hier erstmal noch einige weiter Definitionen:
 		
-		%Definition kleine Kategporie
+		\begin{def}
+		Definition ( kleine Kategporie) \cite[Definition 2.2.29]{Bra}
 		Eine \emph{kleine Kategorie} ist eine Kategorie, deren Klasse der Objekte eine Menge ist.
-
-		%Definition Start und Ziel
+		\end{def}
+		Definition (Start und Ziel)  \cite[Bemerkung 2.2.25]{Bra}
 		F\"ur einen Morphismus \( f: A \to B \) in einer Kategorie \CatC nennen wir \( A \) das Start- und \( B \) das Ziel-Objekt.
 		
 		\label{test}
@@ -133,7 +139,11 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 					 \leftrightarrow &   x \leq y & \wedge  (x \leq z  \wedge  z \leq a )\\
 			 \end{eqnarray}
 			 und mit den selben Umformungsschritten gilt dies auch f\"ur die Identit\"aten.
-		 
+		 Beispiel(Teiler) \cite[Beispiel 2.2.30]{Bra}
+		 \( \Ob(X) = \left\lbrace 1,2,3,6 \right\rbrace \)
+		 Ein Morphismus \(x   \to y \) existiert, wenn \( x \vert y\)
+		  %includestandalone{./files/diagrams/diagram_teiler_6} 
+		  
 	 	Definition (Diskrete und indiskrete Kategorien) \cite[Beispiel 2.2.31]{Bra}
 	 		Eine diskrete Kategorie ist eine Kategorie, in der die einzigen Morphismen die Identit\"aten sind.
 	 		Wenn in einer Kategorie zwischen allen Objekten genau ein Morphismus existiert, sprechen wir von einer indiskreten Kategorie.
@@ -163,11 +173,14 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 		  Es sei \CatC eine Kategorie.
 		  \begin{enumerate}
 			  \item \( \forall A \in \CatC \) ist \( \id_A :A \to A  \) ein Isomorphismus mit \( \id_A^{-1}=\id_A \)
-			  \item F\"ur jeden Isomorphismus \( f: A \to B \) in \CastC
+			  \item F\"ur jeden Isomorphismus \( f: A \to B \) in \CatC gilt: Der inverse Morphismus \(f^{-1}: B \to A \) ist ebenfalls eine Isomorphismus mit \( \left( f^{-1} \right)^{-1} \).
+			  \item Ist \(g: B \to C \) ein weiterer Isomorphismus, so ist \( g \circ f :A \to C \) ebenfalls ein Isomorphismus mit \( \left( g \circ f \right)^{-1} =f^{-1} \circ g^{-1} \)  
 		  \end{enumerate}
-%##		 Lemma Eigenschaften von Isomorphismen
-%##		Isomorphieklassen
-%##		Automorphisemngruppe
+		 Definition(	Isomorphieklassen ) \cite[Definition 2.3.10]{Bra}
+		 Da die Isomorphie eine \"Aquivalenzrelation ist koennen wir von ihren \"Aquivalenzklassen sprechen, welche meist als Isomorphieklassen bezeichnet werden.
+		 
+		 Definition (Automorphismengruppen) \cite[Definition 2.3.13]{Bra}
+		 Es sei \CatC eine Kategorie. Ein Isomorphismus \( f:A \to A \) in \CatC heisst auch \emph{Automorphismus} von $A$. Die Automorphismen von $A$ bilden \bzgl der Komposition eine Gruppe, die \emph{Automorphismusgruppe}.
 
 		 Definition (Homotopieklasse \cite[Aufgabe 2.24]{Bra}
 		 Sei X ein topologischer Raum, dann heissen zwei Pfade \( w,w'  \) von \(x \) nach \( y \) homotop, wenn es eine stetige Abbildung \( H : [0,1] \times [0,1 ] \to X \) gibt, sodass \( H(-,0) = w \) , \( H( -,1) =w' \) und \( H(0,t) =x \) und \(H(1,t) = y \forall t \in [0,1] \) gibt.
@@ -188,7 +201,7 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 		Es bleibt also noch die Assoziativit\"at zuzeigen.
 		??
 		Da jeder Weg ein Inverses gegeben durch \( w^{-1}(t):=w(1-t): [0,1] \to X \) hat wird diese Kategorie zum Gruppoid.
-		Wenn wir jetzt das Fundamentalgruppoid auf einem einzelnen Punkt von \( X \) betrachten, erhalten wir eine Gruppe, diese wird Fundamentalgruppe genannt.
+		Wenn wir jetzt die Automorphismengruppe \( Aut_{\Pi(X)}(x) \) eines Punktes \(x \in X \) aus dem Fundamentalgruppoid betrachten, erhalten wir die FUndamentalgruppe \( \Pi_1(X,x) \) \cite[Beispiel 2.3.14-(8)}{Bra}
 		
 	
 	\section{Kommutative Diagramme}
@@ -213,25 +226,68 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 		Im folgenden Diagramm sind die kleinen Quadrate bereits kommutativ und es ist zu zeigen, dass dann auch schon das grosse Viereck kommutativ ist.
 		%includestandalone{./files/diagrams/diagram_doppel_quadrat}
 		
-		Ein weiteres schoenes Beispiel f\"ur eine Diagrammjagd ist es die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode anleihe]{tikzcdl} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen
+		Ein weiteres schoenes Beispiel f\"ur eine Diagrammjagd ist es die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode anleihe]{tikzcd} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen
 		%includestandalone{./files/diagrams/diagram_wuerfel}
 		
-faktorisierung
-
+	Definition(Faktorisierung) \cite[Definition 2.4.8]{Bra}
+	Eine \emph{Faktorisierung} eines Morphismus \( f:A \to B \) ist ein kommutatives Diagramm 
+		%includestandalone{./files/diagrams/diagram_dreieck_faktor}
+	. Man sagt $f$ faktorisiert \"uber $g$.
+	
+	%Bespiel?
 
 \section{Initiale und finale Objekte}
-definition
-Beispiel 2.5.2 -1
+Definition (Initiale und finale Elemente) \cite[Definition 2.5.1]{Bra}
+Es sei \CatC eine Kategorie,
+\begin{enumerate}
+	\item	 Ein Objekt \( A \in \CatC \) heisst \emph{initial}, falls es f\"ur jedes Element \( B \in \CatC \) genau einen Morphismus \(A \to B \) in \CatC gibt.
+	\item	 Ein Objekt \( A \in \CatC \) heisst \emph{final} ( oder auch \emph{terminal}), falls es f\"ur jedes Element \( B \in \CatC \) genau einen Morphismus \(B \to A \) in \CatC gibt.
+	\item	Ein Objekt \( A \in \CatC \) heisst \emph{Nullobjekt}, wenn es initial und final ist.
+\end{enumerate}
+	
+	Als Beispiel k\"onnen wir hier wieder die Pr\"aordnung der Teiler von 6 w\"ahlen.
+	%includestandalone{./files/diagrams/diagram_teiler_6}
+	die \( 1 \in \CatC \) ist initial und  \(6 \in \CatC \) ist terminal wie man sofort sieht.
+	
+Lemma (Eindeutigkeit) \cite[Lemma 2.5.5]{Bra}
+Es seien \CatC eine Kategorie und 
+\(A , A' \in \CatC \) zwei Objekte.
+\begin{enumerate}
+	\item Ist \(A \) initial, so ist \( \End(A)= \left\lbrace \id_A \right\rbrace \) und daher auch \( \Aut(A)=\left\lbrace \id_A \right\rbrace \)
+	\item Sind \( A,A' \) initial, so gibt es genau einen Morphismus \( A \to A' \), und dieser ist ein Isomorphismus \( A \equiv A' \) 
+	\item Dual dazu sind je zwei finale Objekte einer Kategorie auf eindeutige Weise zueinander isomorph.
+	\item Ist \( A \) initial und \( A \equiv A' \), so ist auch \( A' \) initial. Entsprechendes gilt f\"ur finale Objekte.
+\end{enumerate}
+In diesem Sinne sind initiale bzw. finale Objekte also eindeutig.
 
 \section{Konstruktion mit Kategorien}
-definiton unterkaegiere
+Definition(Unterkategorie) \cite[Definition 2.6.1]{Bra}
+Es sei \CatC eine Kategorie und \( K \subset \Ob\left(\CatC\right) \) eine Teilklasse. F\"ur alle \( A,B \in K \) sei eine Teilmenge
+\[
+	\Hom_\CatD \left( A, B \right) \subset \Hom_\CatC \left( A, B \right)
+\]
+gegeben. Dabei gelte
+\begin{itemize}
+	\item \( \id_A \in \Hom_\CatD \left( A, A \right) \forall A \in K \)
+	\item \( g \circ f \in  \Hom_\CatD \ļeft( A,C \right) \), falls \( f \in \Hom_\CatD \left( A, B \right) \) und  \( g \in \Hom_\CatD \left( B , C \right) .\)
+\end{itemize}
+Dann k\"onnen wir eine Kategorie \CatD konstruieren mit \( \Ob \left( \CatD \right) = K \) und Homomorphismus-Mengen \Hom_\CatD \left(A,B \right) \) f\"ur \( A,B \in K \). Die Kompostion und Identit\"aten werden von \CatC vererbt.
+\\
+Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = \Hom_\CatC \left(A,B \right) \forall A,B } \in K \)
+ 
+Definition (Duale Kategorie) \cite[Definition 2.6.3]{Bra}
+Es sei \CatC eine Kategorie. Die zu Kategorie \( \CatC^{op} \) wird wie folgt konstruiert:
+\begin{itemize}
 
-defn voll
+\end{itemize}
 
-duale kategorie 
+
 produkte
 koprodiukte
 ueber A kategorie
 kategorie von Wirkungen
+
+
+%%%% 
 
 \end{document}

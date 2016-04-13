@@ -1,0 +1,23 @@
+% Tikz file for commutative diagramm
+\input{standalone_header}
+\begin{document}
+	\begin{tikzcd}[
+		]
+		&\bullet
+		\arrow[dr,leftarrow, bend left=50, "t"']{}
+		\arrow[dl,rightarrow, bend right=50,"\alpha"]{}
+		&&
+		\bullet
+		\arrow[dr,rightarrow, bend left=50, "v"']{}
+		\arrow[dl,leftarrow, bend right=50,"a"]{}&\\
+		\bullet
+		\arrow[ddddrr ,rightarrow, bend right=30,"m"]
+		&&
+		\bullet&&\bullet
+		\arrow[ddddll ,rightarrow, bend left=30,"e"']\\
+		&&&& \\
+		&&&& \\
+		&&&& \\
+		&& \bullet && \\
+	\end{tikzcd}
+\end{document}
