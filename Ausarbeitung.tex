@@ -113,7 +113,7 @@
 		 Die f\"ur die Verkn\"upfung von Morphismen geforderten Eigenschaften folgen sofort aus den Eigenschaften der Matrixmultiplikation.
 		 
 		 
-		 Ein weiteres Beispiel ware die Pr\"aordnung
+		 Ein weiteres Beispiel ware eine Pr\"aordnung \( X, \leq \) bestehend aus einer Menge \( X \) und einer bin\"aren Relation \( \leq \), welche reflexiv und transitiv ist.
 		 
 		 \begin{itemize}
 			 \item \(\Ob \) = \BN
@@ -121,7 +121,18 @@
 			 \item \( A \leq B \wedge B \leq  C \rightarrow A \leq C \)  (da eine Pr\"aordnung transitiv ist) 
 			 \item \( \id_A \): \( A \leq A \) (da eine  Pr\"aordnung reflexiv ist)
 		 \end{itemize}
+			 Das die zusaetzlichen Gleichungen gelten ist schnell gezeigt:
+			 \begin{eqnarray}
+			  \text{Assozitivit\"at:} &  ( x \leq y \wedge x \leq z ) \wedge & z \leq a \\
+					 \leftrightarrow & (x \leq z )\wedge & z \leq a \\
+					 \leftrightarrow & x \leq a & \\
+					 \leftrightarrow & 	x \leq y  \wedge & (y \leq a) \\
+					 \leftrightarrow &   x \leq y \wedge & (x \leq z  \wedge  z \leq a )\\
+			 \end{eqnarray}
+			 und mit den selben Umformungsschritten gilt dies auch f\"ur die Identit\"aten.
 		 
+	\section{Isomorphimen}
+	
 		 Definition (Gruppoid) \cite[Beispiel 2.2.34]{Bra}
 		 Ein \emph{Gruppoid} ist eine Katergorie, in der jeder \Mor ein \Iso ist.
 		 
