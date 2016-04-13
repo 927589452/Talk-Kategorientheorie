@@ -1,0 +1,20 @@
+% Tikz file for commutative diagramm
+\input{standalone_header}
+\begin{document}
+	\begin{tikzcd}[
+		]
+		Mitarbeiter
+		\arrow[loop,swap , left, "Manager"]{}
+		\arrow[rr, bend left=10, "arbeitet \ in"]{}
+		\arrow[ddr, bend right=10, near start "Vorname"]{}
+		\arrow[ddr, swap,bend left=10, near end "Nachname"]{}
+		\arrow[rr,leftarrow, bend right=10,"Abteilungsleiter"]{}
+		&
+		&
+		Abteilung
+		\arrow[ldd, bend left=10, "Name"]{}
+		\\	
+		&&&\\
+		& Zeichenkette & \\
+	\end{tikzcd}
+\end{document}
