@@ -1,14 +1,10 @@
 % Tikz file for commutative diagramm
 \input{standalone_header}
 \begin{document}
-	\begin{tikzcd}[
-]
-		A \ar{rr}{f} \ar{dr}[swap]{g} 
-		&
-		& 
-		B \ar{dl}{h}\\
-		&
-		C
-		&
-	\end{tikzcd}
+	\begin{tikzcd}[row sep=scriptsize, column sep=scriptsize]
+& \bullet \arrow[dl] \arrow[rr] \arrow[dd] & & \bullet \arrow[dl] \arrow[dd] \\
+\bullet \arrow[rr, crossing over] \arrow[dd] & & \bullet \\
+& \bullet \arrow[dl] \arrow[rr] & & \bullet \arrow[dl] \\
+\bullet \arrow[rr] & & \bullet \arrow[from=uu, crossing over]\\
+\end{tikzcd}
 \end{document}
