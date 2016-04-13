@@ -1,0 +1,106 @@
+\documentclass{article}
+\usepackage[left=3cm,right=3cm]{geometry}
+\usepackage{lmodern}
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\input{./Packages}
+\input{./Packages_tikz}
+\input{./Packages_math}
+\input{./Abbreviations}
+\input{./Abbreviations_math}
+\title{Ausarbeitung zum Seminar Kategorientheorie}
+\bibliography{Ausarbeitung}
+
+
+\begin{document}
+\section{Einleitung}
+	Die folgende Ausarbeitung ist als Grundlage und Erg\"anzung zu meinem Vortrag zu sehen. 
+	Ich werde einige Beispiele hier genauer ausarbeiten, als ich sie in der Praesentation besprechen werde.
+	Was ist Kategorientheorie? 
+	Ich sehe die Kategorientheorie ein bisschen als eine Art Hilfsmathemathik, so wie andere Wissenschaften die Mathemathik als Hilfswissenschaft ansehen;
+	die Mathemathik an sich scheint in vielen Auspr\"agungen die N\"utzlichkeit f\"ur das reale Leben zu fehlen,
+	und so mag sich manchem nicht sofort erschliessen, 
+	warum die Kategorientheorie so praktisch ist.
+	\\
+	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen koennen. Der Aufbau folgt dem Aufbau der Quelle \nocite{Bra}
+\section{Der Begriff der Kategorie}
+	
+		%Definition 2.2.2
+		Eine \emph{Kategorie} \CatC besteht aus den folgenden Daten:
+		\begin{itemize}
+			\item einer Klasse $ \Ob \left( \CatC \right)$, deren Elemente wir \emph{Objekte} nennen,
+			\item zu je zwei Objekten 
+			\begin{math}
+				A,B \in \Ob \left( \CatC  \right) 
+			\end{math}
+			einer Menge 
+			\begin{math}
+				\Hom_\CatC \left( A,B \right) 
+			\end{math}
+			, deren Elemente wir mit 
+			\begin{math}
+				f : A \to B 
+			\end{math}
+			notieren und \emph{Morphismen} von $ A $ nach $ B $ nennen,
+			\item zu je drei Objekten 
+			\begin{math}
+		 A,B,C \in \Ob \left( \CatC  \right) 
+			\end{math}	
+			einer \Abb 
+			\begin{displaymath}
+				\Hom_\CatC \left( A,B \right) \times \Hom_\CatC \left( B,C \right) \to \Hom_\CatC \left( A,C \right) ,
+			\end{displaymath}
+			die wir mit 
+			\begin{math}
+				\left( f,g \right) \mapsto g \circ f
+			\end{math}
+			notieren und \emph{Komposition von Morphismen} nennen, 
+	\right) \right) 		\item zu jedem Objekt 
+			\begin{math}
+				A \in \Ob \left( \CatC \right)
+			\end{math} 	
+			einen ausgezeichneten Morphismus 
+			\begin{displaymath}
+				\Id_A \in \Hom_\CatC ( A,A) ,
+			\end{displaymath}
+			welchen wir die \emph{Identit\"at} nennen.
+		\end{itemize}
+		Diese Daten m\"ussen den folgenden Regeln gen\"ugen:
+		\begin{itemize}
+			\item Die Komposition von Morphismen ist \emph{assoziativ}: F\"ur drei Morphismen der Form
+			\begin{math}
+				f: A \to B , g: B \to C, h:C \to D 
+			\end{math}
+			in \CatC gilt 
+			\begin{displaymath}
+				h \circ \left( g \circ f \right) = \left( h \circ g \right) \circ f
+			\end{displaymath}
+			als Morphismen
+			\begin{math}
+				A \to D.
+			\end{math}
+			\item Die Identit\"aten sind \emph{beidseitig neutral} \bzgl der Komposition: F\"ur jeden \Mor 
+			\begin{math}
+				f: A \to B
+			\end{math}
+			in \CatC gilt
+			\begin{displaymath}
+				f \circ \Id_A = f = \Id_B \circ f
+			\end{displaymath}
+		\end{itemize}
+		\\
+		Was  diese Definition bedeutet werde ich nach kurzem Ausholen an einem Beispiel zeigen.
+		Hier erstmal noch einige weiter Definitionen:
+		
+		%Definition kleine Kategporie
+		Eine \emph{kleine Kategorie} ist eine Kategorie, deren Klasse der Objekte eine Menge ist.
+
+		%Definition Start und Ziel
+		F\"ur einen Morphismus \( f: A \to B \) in einer Kategorie \CatC nennen wir \( A \) das Start- und \( B \) das Ziel-Objekt.
+		
+		\label{test}
+		Jetzt folgt das erste Beispiel(\cite{Bra-2.2.10}):
+		
+		Zu einem K\"orper \( K \) k\"onnen wir die Kategorie der \( K\)-Vectorr\"aume \( \CatVect_K \) betrachten:
+\end{document}
