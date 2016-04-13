@@ -1,3 +1,4 @@
+
 \documentclass{article}
 \usepackage[left=3cm,right=3cm]{geometry}
 \usepackage{lmodern}
@@ -10,8 +11,8 @@
 \input{./Abbreviations}
 \input{./Abbreviations_math}
 \input{./Bibliography}
+
 \title{Ausarbeitung zum Seminar Kategorientheorie}
-\bibliography{Bibliography,sources}
 
 
 \begin{document}
@@ -27,7 +28,7 @@
 	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen koennen. Der Aufbau folgt dem Aufbau der Quelle \nocite{Bra}.
 \section{Der Begriff der Kategorie}
 	
-		%Definition 2.2.2
+		Definition(Kategorie)\cite[Definition 2.2.2]{Bra}
 		Eine \emph{Kategorie} \CatC besteht aus den folgenden Daten:
 		\begin{itemize}
 			\item einer Klasse \( \Ob \left( \CatC \right) \), deren Elemente wir \emph{Objekte} nennen,
@@ -131,20 +132,19 @@
 			 \end{eqnarray}
 			 und mit den selben Umformungsschritten gilt dies auch f\"ur die Identit\"aten.
 		 
+	 	Definition (Diskrete und indiskrete Kategorien) \cite[Beispiel 2.2.31]{Bra}
+	 		Eine diskrete Kategorie ist eine Kategorie, in der die einzigen Morphismen die Identit\"aten sind.
+	 		Wenn in einer Kategorie zwischen allen Objekten genau ein Morphismus existiert, sprechen wir von einer indiskreten Kategorie.
+	 		
+	 		
+		 
 	\section{Isomorphimen}
 	
 		Definition (Isomorphismus ) \cite[Definition 2.3.1]{Bra}
 		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) , sodass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
 		Dieser Moprhismus \( g \) ist eindeutig und wird mit \( f^{-1} :B \to A \) bezeichnet.
 		\(f^{-1} \) wird auch der zu \( f \)  inverse Morphismus genannt.\\
-				\begin{tikzcd}[
-					]
-					A 
-					\arrow[r, bend left=30,"f"]{}
-					\arrow[r, bend right=30,"f^{-1}"]{}
-					& 
-					B 
-				\end{tikzcd}
+
 		Falls es einen Isomorphismus \(A \to B \) gibt sagen wir \( A \) ist isomorph zu \( B \) und schreiben \( A \equiv B \).
 		
 		 Definition (Gruppoid) \cite[Beispiel 2.2.34]{Bra}
@@ -166,21 +166,11 @@
 		Es ist offensichtlich, dass das Vor- oder Nachschalten eines konstanten Weges hier keine Veraenderung bringt, somit gilt f\"ur einen beliebigen Weg 
 		\(w:x \to y \) mit \( x,y \in X\):
 		\( \id_y \circ w = w = w \circ \id_x \)
+		Es bleibt also noch die Assoziativit\"at zuzeigen.
+		
+		 ??
+		Wenn wir jetzt das Fundamentalgruppoid auf einem einzelnen Punkt von \( X \) betrachten, erhalten wir die Fundamentalgruppe von X.
+		
+	
 		 
-		 
-		 \begin{thebibliography}{}
-		 @book{Bra,
-		 author = {Martin Brandenburg},
-		 title = {Einf\"uhrung in die Kategorientheorie, mit ausf\"uhrlichen Erkl\"arungen und Beispielen},
-		 date = {2015},
-		 publisher = {Springer},
-		 isbn = {978-3-662-47067-1},
-		 doi = {10.1007/978-3-662-47068-8},
-		 }
-		 
-		 \end{thebibliography}
-		 
-\bibliographystyle{plain}
-\bibliography{Bibilography,sources} 
-% Note the lack of whitespace between the commas and the next bib file.
 \end{document}
