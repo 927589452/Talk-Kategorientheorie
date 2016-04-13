@@ -138,7 +138,12 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 	 		
 	 		
 		 Beispiel Datenbanken \cite[Beispiel 2.2.33]{Bra}
-		 
+		 \includestandalone{./files/diagrams/diagram_database}
+		 Es wird zusaetzlich gegeben, dass gilt:
+		 \begin{itemize}
+			 \item \( \text{arbeitet \ in } \circ \text{Abteilungsleiter}= \id_\text{Abteilung}
+			 \item 
+		 \end{itemize}
 	\section{Isomorphimen}
 	
 		Definition (Isomorphismus ) \cite[Definition 2.3.1]{Bra}
@@ -150,7 +155,12 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 		
 		 Definition (Gruppoid) \cite[Beispiel 2.2.34]{Bra}
 		 Ein \emph{Gruppoid} ist eine Katergorie, in der jeder \Mor ein \Iso ist.
-		 
+		  
+		  
+##		 Lemma Eigenschaften von Isomorphismen
+##		Isomorphieklassen
+##		Automorphisemngruppe
+
 		 Definition (Homotopieklasse \cite[Aufgabe 2.24]{Bra}
 		 Sei X ein topologischer Raum, dann heissen zwei Pfade \( w,w'  \) von \(x \) nach \( y \) homotop, wenn es eine stetige Abbildung \( H : [0,1] \times [0,1 ] \to X \) gibt, sodass \( H(-,0) = w \) , \( H( -,1) =w' \) und \( H(0,t) =x \) und \(H(1,t) = y \forall t \in [0,1] \) gibt.
 		 
@@ -168,10 +178,47 @@ l		Jetzt folgt das erste Beispiel(\cite[Beispiel 2.2.10]{Bra}):
 		\(w:x \to y \) mit \( x,y \in X\):
 		\( \id_y \circ w = w = w \circ \id_x \)
 		Es bleibt also noch die Assoziativit\"at zuzeigen.
+		??
 		Da jeder Weg ein Inverses gegeben durch \( w^{-1}(t):=w(1-t): [0,1] \to X \) hat wird diese Kategorie zum Gruppoid.
-		 ??
 		Wenn wir jetzt das Fundamentalgruppoid auf einem einzelnen Punkt von \( X \) betrachten, erhalten wir eine Gruppe, diese wird Fundamentalgruppe genannt.
 		
 	
-		 
+	\section{Kommutative Diagramme}
+		Definition(Kommutatives Diagramm) \cite[Definition 2.4.3]{Bra}
+		Sei \(\Gamma? (V,E=) \) ein gerichteter Graph. Ein  \emph{Diagramm} $X$ in der Form \Gamma besteht aus den folgenden Daten:
+		\begin{enumerate}
+			\item f\"ur jeden Knoten \( v \in V \) ein  Objekt \( X(v) \in \CatC \)
+			\item f\"ur jede Kante \( e:v \to w \) in \( E \) ein Morphismus \( X(e):X(v) \to X(w) \)  
+		\end{enumerate}
+		Das Diagramm $X$ heisst \emph{kommutativ}, wenn f\"ur je zwei Knoten \(v,w \in V \) und je zwei Pfade \( \left(e_n, \dots ,e_1\right) \) und \( \left(f_m, \dots ,f_1\right) \) von $v $ nach $w$ in $\Gamma $ die Gleichung 
+		\[
+			X(e_n) \circ \dots \circ X(e_1) = X(f_m) \circ \dots \circ X(f_1)
+		\]
+		von Morphismen \( X(v) \to X(w) \) gilt.
+		
+		Als Spezialfall hiervon kann man kommutative Dreiecke und Quadrate betrachten:
+		\includestandalone(.files/diagrams/diagram_dreieck_easy)
+		\includestandalone(.files/diagrams/diagram_quadrat_easy)		 
+
+Diagrammjagd 2
+Herz und Wuerfel
+Diagrammjagd Wuerfel
+faktorisierung
+
+
+\section{Initiale und finale Objekte}
+definition
+Beispiel 2.5.2 -1
+
+\section{Konstruktion mit Kategorien}
+definiton unterkaegiere
+
+defn voll
+
+duale kategorie 
+produkte
+koprodiukte
+ueber A kategorie
+kategorie von Wirkungen
+
 \end{document}
