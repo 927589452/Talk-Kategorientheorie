@@ -185,17 +185,17 @@ l		Jetzt folgt das erste Beispiel
 	 \begin{bsp}[Datenbanken]
 		  \cite[Beispiel 2.2.33]{Bra}
 		 %diagram_database
-		 	\begin{tikzcd}
-		Mitarbeiter
-		\arrow[loop, bend left=10, "Manager" ]{}
-		\arrow[rr, bend left=10, "arbeitet  in"]{}
-		\arrow[ddr, bend right=10, "Vorname" near start]{}
-		\arrow[ddr, swap,bend left=10,  "Nachname" near end ]{}
-		\arrow[rr,leftarrow, bend right=10,"Abteilungsleiter"]{}
+		\begin{tikzcd}
+		"Mitarbeiter"
+%		\arrow[loop, bend left, "Manager"]
+%		\arrow[rr, bend left, "arbeitet in"]
+%		\arrow[ddr, bend right=10, "Vorname" near start]
+%		\arrow[ddr, swap,bend left=10,  "Nachname" near end ]
+%		\arrow[rr,leftarrow, bend right=10,"Abteilungsleiter"]
 		&
 		&
 		Abteilung
-		\arrow[ldd, bend left=10, "Name"]{}
+%		\arrow[ldd, bend left=10, "Name"]{}
 		\\	
 		&&\\
 		& Zeichenkette & 
