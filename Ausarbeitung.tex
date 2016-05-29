@@ -7,9 +7,6 @@
 \usepackage[left=3cm,right=3cm]{geometry}
 \usepackage{lmodern}
 
-\shorthandoff{"}
-\shorthandoff{>}
-\shorthandoff{<}
 \usepackage[T1]{fontenc}
 %\usepackage[ansinew]{inputenc}
 \usepackage{biblatex} 	
@@ -218,8 +215,8 @@ l		Jetzt folgt das erste Beispiel
 			\begin{tikzcd}[
 		]
 		A 
-		\arrow[r, bend left=30,"f"]{}
-		\arrow[r, swap,bend right=30,"{f^{-1}}"  ]{}
+%		\arrow[r, bend left=30,"f"]{}
+%		\arrow[r, swap,bend right=30,"{f^{-1}}"  ]{}
 		& 
 		B 
 	\end{tikzcd}
@@ -294,10 +291,10 @@ l		Jetzt folgt das erste Beispiel
  		%diagram_dreieck_easy
  			\begin{tikzcd}[
 		]
-		A \ar{rr}{f} \ar{dr}[swap]{g} 
+%		A \ar{rr}{f} \ar{dr}[swap]{g} 
 		&
 		& 
-		B \arrow[dl,leftarrow, dashed, "\exists"]{}\\
+%		B \arrow[dl,leftarrow, dashed, "\exists"]{}\\
 		&
 		C
 		&
@@ -325,17 +322,17 @@ l		Jetzt folgt das erste Beispiel
 			\begin{tikzcd}[
 		]
 		&\bullet
-		\arrow[dr,leftarrow, bend left=50, "t"']{}
-		\arrow[dl,rightarrow, bend right=50,"alpha"]{}
+%		\arrow[dr,leftarrow, bend left=50, "t"']{}
+%		\arrow[dl,rightarrow, bend right=50,"alpha"]{}
 		&&
 		\bullet
-		\arrow[dr,rightarrow, bend left=50, "v"']{}
-		\arrow[dl,leftarrow, bend right=50,"a"]{} &\\
+%		\arrow[dr,rightarrow, bend left=50, "v"']{}
+%		\arrow[dl,leftarrow, bend right=50,"a"]{} &\\
 		\bullet
-		\arrow[ddddrr ,rightarrow, bend right=30,"m"]
+%		\arrow[ddddrr ,rightarrow, bend right=30,"m"]
 		&&
 		\bullet&&\bullet
-		\arrow[ddddll ,rightarrow, bend left=30,"e"']\\
+%		\arrow[ddddll ,rightarrow, bend left=30,"e"']\\
 		&&&& \\
 		&&&& \\
 		&&&& \\
@@ -382,10 +379,10 @@ l		Jetzt folgt das erste Beispiel
 		%diagram_dreieck_faktor
 			\begin{tikzcd}[
 		]
-		A \ar{rr}{f} \ar{dr}[swap]{g} 
+%		A \ar{rr}{f} \ar{dr}[swap]{g} 
 		&
 		& 
-		B \arrow[dl,leftarrow, dashed, "\exists"]{}\\
+%		B \arrow[dl,leftarrow, dashed, "\exists"]{}\\
 		&
 		C
 		&

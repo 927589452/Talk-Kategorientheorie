@@ -1,0 +1,44 @@
+
+\documentclass{article}
+%\usepackage{standalone}
+\usepackage[left=3cm,right=3cm]{geometry}
+%\usepackage{lmodern}
+
+\usepackage[T1]{fontenc}
+%\usepackage[ansinew]{inputenc}
+%\usepackage{biblatex} 	
+\usepackage{tikz-cd}
+%\input{./Packages}
+%\input{./Packages_tikz}
+%\input{./Packages_math}
+%\input{./Abbreviations}
+%\input{./Abbreviations_math}
+%\usepackage{bm}
+%\AtBeginEnvironment{tikzpicture}{\catcode $=3 } % $
+%\usepackage[ngerman]{babel} 
+
+\begin{document}
+
+		 %diagram_database
+		\begin{tikzcd}
+		Mitarbeiter
+		\arrow[loop, bend left, "Manager"]
+		\arrow[rr, bend left, "arbeitet in"]
+		\arrow[ddr, bend right=10, "Vorname" near start]
+		\arrow[ddr, swap,bend left=10,  "Nachname" near end ]
+		\arrow[rr,leftarrow, bend right=10,"Abteilungsleiter"]
+		&
+		&
+		Abteilung
+		\arrow[ldd, bend left=10, "Name"]{}
+		\\	
+		&&\\
+		& Zeichenkette & 
+	\end{tikzcd}
+	
+	%%%% 
+%\bibliography{sources}
+%\bibliographystyle{alpha}
+
+\end{document}
+
