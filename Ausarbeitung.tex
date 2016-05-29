@@ -3,39 +3,47 @@
 
 
 \documentclass{article}
+\usepackage{standalone}
 \usepackage[left=3cm,right=3cm]{geometry}
 \usepackage{lmodern}
-\usepackage[ngerman]{babel}
+
+\shorthandoff{"}
+\shorthandoff{>}
+\shorthandoff{<}
 \usepackage[T1]{fontenc}
-\usepackage[ansinew]{inputenc}
+%\usepackage[ansinew]{inputenc}
+%\usepackage{biblatex} 	
 \input{./Packages}
 \input{./Packages_tikz}
 \input{./Packages_math}
 \input{./Abbreviations}
 \input{./Abbreviations_math}
-\usepackage{bm}
-\bibliography{sources}
-\bibliographystyle{alpha}
+%\usepackage{bm}
+%\AtBeginEnvironment{tikzpicture}{\catcode $=3 } % $
+\usepackage[ngerman]{babel} 
 
 
 \title{Ausarbeitung zum Seminar Kategorientheorie}
-
+\author{Jens Heinrich}
+\date{14.04.2016}
 
 \begin{document}
+\maketitle
 \section{Einleitung}
 	Die folgende Ausarbeitung ist als Grundlage und Erg\"anzung zu meinem Vortrag zu sehen. 
 	Ich werde einige Beispiele hier genauer ausarbeiten, als ich sie in der Praesentation besprechen werde.
 	Was ist Kategorientheorie? 
-	Ich sehe die Kategorientheorie ein bisschen als eine Art Hilfsmathemathik, so wie andere Wissenschaften die Mathemathik als Hilfswissenschaft ansehen;
-	die Mathemathik an sich scheint in vielen Auspr\"agungen die N\"utzlichkeit f\"ur das reale Leben zu fehlen,
+	Ich sehe die Kategorientheorie ein bisschen als eine Art Hilfsmathematik, so wie andere Wissenschaften die Mathematik als Hilfswissenschaft ansehen;
+	die Mathematik an sich scheint in vielen Auspr\"agungen die N\"utzlichkeit f\"ur das reale Leben zu fehlen,
 	und so mag sich manchem nicht sofort erschliessen, 
 	warum die Kategorientheorie so praktisch ist.
 	\\
 	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen koennen. Der Aufbau folgt dem Aufbau der Quelle \nocite{Bra}.
+	
 \section{Der Begriff der Kategorie}
 	
 		\begin{defi}[Kategorie]
-		Definition(Kategorie)\cite[Definition 2.2.2]{Bra}
+		\cite[Definition 2.2.2]{Bra}
 		Eine \emph{Kategorie} \CatC besteht aus den folgenden Daten:
 		\begin{itemize}
 			\item einer Klasse \( \Ob \left( \CatC \right) \), deren Elemente wir \emph{Objekte} nennen,
@@ -73,7 +81,7 @@
 			\begin{displaymath}
 				\id_A \in \Hom_\CatC ( A,A) ,
 			\end{displaymath}
-			welchen wir die \emph{identit\"at} nennen.
+			welchen wir die \emph{Identit\"at} nennen.
 		\end{itemize}
 		Diese Daten m\"ussen den folgenden Regeln gen\"ugen:
 		\begin{itemize}
@@ -89,7 +97,7 @@
 			\begin{math}
 				A \to D.
 			\end{math}
-			\item Die identit\"aten sind \emph{beidseitig neutral} \bzgl der Komposition: F\"ur jeden \Mor 
+			\item Die Identit\"aten sind \emph{beidseitig neutral} \bzgl der Komposition: F\"ur jeden \Mor 
 			\begin{math}
 				f: A \to B
 			\end{math}
@@ -102,16 +110,13 @@
 		Was  diese Definition bedeutet werde ich nach kurzem Ausholen an einem Beispiel zeigen.
 		Hier erstmal noch einige weiter Definitionen:
 		
-		\begin{defi}
-		
-		
-		Definition ( kleine Kategporie) \cite[Definition 2.2.29]{Bra}
+		\begin{defi}[ kleine Kategporie] \cite[Definition 2.2.29]{Bra}
 		Eine \emph{kleine Kategorie} ist eine Kategorie, deren Klasse der Objekte eine Menge ist.
 		\end{defi}
-		Definition (Start und Ziel)  \cite[Bemerkung 2.2.25]{Bra}
+		\begin{defi}[Start und Ziel]  \cite[Bemerkung 2.2.25]{Bra}
 		F\"ur einen Morphismus \( f: A \to B \) in einer Kategorie \CatC nennen wir \( A \) das Start- und \( B \) das Ziel-Objekt.
+		\end{defi}
 		
-		\label{test}
 l		Jetzt folgt das erste Beispiel
 
 		\begin{bsp}
@@ -120,8 +125,8 @@ l		Jetzt folgt das erste Beispiel
 		
 		Zu einem K\"orper \( K \) k\"onnen wir die Kategorie der \( K\)-Vectorr\"aume \( \CatVect_K \) betrachten:
 		\begin{itemize}
-			\item	\( Ob \CatVect_K = \left\lbrace V | V \text{ist} K-\text{Vektorraum} \right\rbrace  = \left\lbrace K^n | n \in \BN \right\rbrace \)
-			\item F\"ur  \( A=K^n , B =K^m , n,m \in \BN \text{aus} Ob\CatVect_K) \) existieren $K$-lineare Abbildungen, diese stellen \( \Hom_{\CatVect_K}\left( A,B \right) \) dar
+			\item	\( \Ob \left( \CatVect_K \right) = \left\lbrace V | V \text{ist} K-\text{Vektorraum} \right\rbrace  = \left\lbrace K^n | n \in \BN \right\rbrace \)
+			\item F\"ur  \( A=K^n , B =K^m , n,m \in \BN \ \text{aus} \ \Ob \left( \CatVect_K) \right) \) existieren $K$-lineare Abbildungen, diese stellen \( \Hom_{\CatVect_K}\left( A,B \right) \) dar
 			\item Die Verkn\"upfung entspricht der Matrixmultiplikation der Abbildungsmatrizen 
 			\item \( \id_A = E_n \) f\"ur \( K^n , n \in \BN \)
 		 \end{itemize}
@@ -137,9 +142,9 @@ l		Jetzt folgt das erste Beispiel
 			 \item \( A \leq B \wedge B \leq  C \rightarrow A \leq C \)  (da eine Pr\"aordnung transitiv ist) 
 			 \item \( \id_A \): \( A \leq A \) (da eine  Pr\"aordnung reflexiv ist)
 		 \end{itemize}
-			 Das die zusaetzlichen Gleichungen gelten ist schnell gezeigt:
+			 Dass die zus\"atzlichen Gleichungen gelten ist schnell gezeigt:
 			 \begin{eqnarray}
-			  \text{Assozitivit\"at:} &  ( x \leq y \wedge x \leq z ) & \wedge z \leq a \\
+			  \text{Assoziativit\"at:} &  ( x \leq y \wedge x \leq z ) & \wedge z \leq a \\
 					 \leftrightarrow & (x \leq z ) & \wedge  z \leq a \\
 					 \leftrightarrow & x \leq a & \\
 					 \leftrightarrow & 	x \leq y  & \wedge  (y \leq a) \\
@@ -153,8 +158,10 @@ l		Jetzt folgt das erste Beispiel
 		 %Beispiel(Teiler)
 		  \cite[Beispiel 2.2.30]{Bra}
 		 \( \Ob(X) = \left\lbrace 1,2,3,6 \right\rbrace \)
-		 Ein Morphismus \(x   \to y \) existiert, wenn \( x \vert y\)
-		  %includestandalone{./files/diagrams/diagram_teiler_6} 
+		 Ein Morphismus \(x   \to y \) existiert, wenn \( x \vert y\) \\
+		 
+		  %\includestandalone
+		  \include{./files/diagrams/diagram_teiler_6} 
 		\end{bsp} 
 		 
 	 	\begin{defi}[Diskrete und indiskrete Kategorien]
@@ -165,7 +172,8 @@ l		Jetzt folgt das erste Beispiel
 	 		
 	 \begin{bsp}[Datenbanken]
 		  \cite[Beispiel 2.2.33]{Bra}
-		 %includestandalone{./files/diagrams/diagram_database}
+		 %\includestandalone
+		 \include{./files/diagrams/diagram_database}
 		 Es wird zusaetzlich gegeben, dass gilt:
 		 \begin{itemize}
 			 \item \( \text{arbeitet \ in} \circ \text{Abteilungsleiter}= \id_\text{Abteilung}  \)
@@ -173,21 +181,22 @@ l		Jetzt folgt das erste Beispiel
 			 \item \( \text{arbeitet \ in }  \circ \text{Manager} = \text{arbeitet \ in } \)
 		 \end{itemize}
 	 \end{bsp}
-	\section{Isomorphimen}
-	
+	\section{Isomorphismen}
+		
 		\begin{defi}[Isomorphismus ]
 		 \cite[Definition 2.3.1]{Bra}
-		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) , sodass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
-		Dieser Moprhismus \( g \) ist eindeutig und wird mit \( f^{-1} :B \to A \) bezeichnet.
+		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) , so dass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
+		Dieser Morphismus \( g \) ist eindeutig und wird mit \( f^{-1} :B \to A \) bezeichnet.
 		\(f^{-1} \) wird auch der zu \( f \)  inverse Morphismus genannt.\\
-		%includestandalone{files/diagrams/diagram_isomorph_objects}
+		%\includestandalone
+		\include{files/diagrams/diagram_isomorph_objects}
 		Falls es einen Isomorphismus \( A \to B \) gibt sagen wir \( A \) ist isomorph zu \( B \) und schreiben \( A \equiv B \).
 		\end{defi}
 		
 		
-		 \begin{defi[Gruppoid]
+		 \begin{defi}[Gruppoid]
 		  \cite[Beispiel 2.2.34]{Bra}
-		 Ein \emph{Gruppoid} ist eine Katergorie, in der jeder \Mor ein \Iso ist.
+		 Ein \emph{Gruppoid} ist eine Kategorie, in der jeder \Mor ein \Iso ist.
 		  \end{defi}
 		  
 		  \begin{lem}[Eigenschaften von Isomorphismen]
@@ -195,13 +204,14 @@ l		Jetzt folgt das erste Beispiel
 		  Es sei \CatC eine Kategorie.
 		  \begin{enumerate}
 			  \item \( \forall A \in \CatC \) ist \( \id_A :A \to A  \) ein Isomorphismus mit \( \id_A^{-1}=\id_A \)
-			  \item F\"ur jeden Isomorphismus \( f: A \to B \) in \CatC gilt: Der inverse Morphismus \(f^{-1}: B \to A \) ist ebenfalls eine Isomorphismus mit \( \left( f^{-1} \right)^{-1} \).
+			  \item F\"ur jeden Isomorphismus \( f: A \to B \) in \CatC gilt: Der inverse Morphismus \(f^{-1}: B \to A \) ist ebenfalls ein Isomorphismus mit \( \left( f^{-1} \right)^{-1} \).
 			  \item Ist \(g: B \to C \) ein weiterer Isomorphismus, so ist \( g \circ f :A \to C \) ebenfalls ein Isomorphismus mit \( \left( g \circ f \right)^{-1} =f^{-1} \circ g^{-1} \)  
 		  \end{enumerate}
-		  	\end[lem]
-		 \begin{defi}[	Isomorphieklassen]
+		  	\end{lem}
+		  	
+		 \begin{defi}[Isomorphieklassen]
 		  \cite[Definition 2.3.10]{Bra}
-		 Da die Isomorphie eine \"Aquivalenzrelation ist koennen wir von ihren \"Aquivalenzklassen sprechen, welche meist als Isomorphieklassen bezeichnet werden.
+		 Da die Isomorphie eine \"Aquivalenzrelation ist k\"onnen, wir von ihren \"Aquivalenzklassen sprechen, welche meist als Isomorphieklassen bezeichnet werden.
 		 \end{defi}
 		 
 		 
@@ -221,16 +231,16 @@ l		Jetzt folgt das erste Beispiel
 		\begin{itemize}
 			\item \(\Ob \left( \Pi \left( X \right) \right) = x \in X \)
 			 \item Seien \( x ,y \in X ) \), dann ist \( \Hom(x,y) \) die Homotopieklasse der Pfade von x nach y
-			 \item Die Verkn\"upfung der \Hom \ ist das aneinanderh\"angen von Pfaden.
+			 \item Die Verkn\"upfung der \Hom \ ist das Aneinanderh\"angen von Pfaden.
 			 \item \(  \id_x \) ist der konstante Pfad \( w(t)=x \forall t \in [0,1] \)
 		\end{itemize}
 		Jetzt m\"ussen wir \"uberpr\"ufen, ob die Eigenschaften der Verkn\"upfung gegeben sind.
-		Es ist offensichtlich, dass das Vor- oder Nachschalten eines konstanten Weges hier keine Veraenderung bringt, somit gilt f\"ur einen beliebigen Weg 
+		Es ist offensichtlich, dass das Vor- oder Nachschalten eines konstanten Weges hier keine Ver\"anderung bringt, somit gilt f\"ur einen beliebigen Weg 
 		\(w:x \to y \) mit \( x,y \in X\):
 		\( \id_y \circ w = w = w \circ \id_x \)
-		Die Assoziativit\"at folgt daraus, dass wir die Homtopieklassen betrachten und die Elemente der Homotopieklasse stetig in einander \"ubergehen.
-		Da jeder Weg ein Inverses gegeben durch \( w^{-1}(t):=w(1-t): [0,1] \to X \) hat wird diese Kategorie zum Gruppoid.
-		Wenn wir jetzt die Automorphismengruppe \( Aut_{\Pi(X)}(x) \) eines Punktes \(x \in X \) aus dem Fundamentalgruppoid betrachten, erhalten wir die FUndamentalgruppe \( \Pi_1(X,x) \) \cite[Beispiel 2.3.14-(8)]{Bra}
+		Die Assoziativit\"at folgt daraus, dass wir die Homtopieklassen betrachten und die Elemente der Homotopieklasse stetig ineinander \"ubergehen.
+		Da jeder Weg ein Inverses, gegeben durch \( w^{-1}(t):=w(1-t): [0,1] \to X \) hat, wird diese Kategorie zum Gruppoid.
+		Wenn wir jetzt die Automorphismengruppe \( Aut_{\Pi(X)}(x) \) eines Punktes \(x \in X \) aus dem Fundamentalgruppoid betrachten, erhalten wir die Fundamentalgruppe \( \Pi_1(X,x) \) \cite[Beispiel 2.3.14-(8)]{Bra}
 		\end{bso}
 	
 	\section{Kommutative Diagramme}
@@ -248,25 +258,26 @@ l		Jetzt folgt das erste Beispiel
 		von Morphismen \( X(v) \to X(w) \) gilt.
 		
 		Als Spezialfall hiervon kann man kommutative Dreiecke und Quadrate betrachten:
- 		%includestandalone{./files/diagrams/diagram_dreieck_easy}
-		%includestandalone{./files/diagrams/diagram_quadrat_easy}	
+ 		\includestandalone{./files/diagrams/diagram_dreieck_easy}
+		\includestandalone{./files/diagrams/diagram_quadrat_easy}	
 		\end{defi}
 			 
 		Ein weiteres schoenes Beispiel ist das folgende Diagramm:
 		\begin{bsp}
-		%includestandalone{./files/diagrams/diagram_herz}
+		\includestandalone{./files/diagrams/diagram_herz}
 		\end{bsp}
 		Als nachstes wollen wir uns mit der Diagrammjagd besch\"aftigen \cite[Beispiel 2.4.7]{Bra}.
 		Im folgenden Diagramm sind die kleinen Quadrate bereits kommutativ und es ist zu zeigen, dass dann auch schon das grosse Viereck kommutativ ist.
-		%includestandalone{./files/diagrams/diagram_doppel_quadrat}
+		\includestandalone{./files/diagrams/diagram_doppel_quadrat}
 		
-		Ein weiteres schoenes Beispiel f\"ur eine Diagrammjagd ist es die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode anleihe]{tikzcd} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen
-		%includestandalone{./files/diagrams/diagram_wuerfel}
-		
+		Ein weiteres sch\"ones Beispiel f\"ur eine Diagrammjagd ist  die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode]{tikzcd} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen. \\
+		\includestandalone{./files/diagrams/diagram_wuerfel}
+		\newpage
 	\begin{defi}[Faktorisierung]
 	 \cite[Definition 2.4.8]{Bra}
-	Eine \emph{Faktorisierung} eines Morphismus \( f:A \to B \) ist ein kommutatives Diagramm 
-		%includestandalone{./files/diagrams/diagram_dreieck_faktor}
+	Eine \emph{Faktorisierung} eines Morphismus \( f:A \to B \) ist ein kommutatives Diagramm \\
+		%\includestandalone{
+		\input{./files/diagrams/diagram_dreieck_faktor} \\
 	. Man sagt $f$ faktorisiert \"uber $g$ bzw. $ C $.
 	\end{defi}
 	%Bespiel?
@@ -285,7 +296,8 @@ l		Jetzt folgt das erste Beispiel
 \end{defi}
 	Als Beispiel k\"onnen wir hier wieder die Pr\"aordnung der Teiler von 6 w\"ahlen.
 	\begin{bsp}
-	%includestandalone{./files/diagrams/diagram_teiler_6}
+	%\includestandalone{
+	\input{./files/diagrams/diagram_teiler_6}
 	die \( 1 \in \CatC \) ist initial und  \(6 \in \CatC \) ist terminal wie man sofort sieht.
 	\end{bsp}
 	
@@ -314,7 +326,7 @@ gegeben. Dabei gelte
 	\item \( \id_A \in \Hom_\CatD \left( A, A \right) \forall A \in K \)
 	\item \( g \circ f \in  \Hom_\CatD \left( A,C \right) \), falls \( f \in \Hom_\CatD \left( A, B \right) \) und  \( g \in \Hom_\CatD \left( B , C \right) .\)
 \end{itemize}
-Dann k\"onnen wir eine Kategorie \CatD konstruieren mit \( \Ob \left( \CatD \right) = K \) und Homomorphismus-Mengen \( \Hom_\CatD \left(A,B \right) \) f\"ur \( A,B \in K \). Die Kompostion und Identit\"aten werden von \CatC vererbt.
+Dann k\"onnen wir eine Kategorie \CatD konstruieren mit \( \Ob \left( \CatD \right) = K \) und Homomorphismus-Mengen \( \Hom_\CatD \left(A,B \right) \) f\"ur \( A,B \in K \). Die Komposition und Identit\"aten werden von \CatC vererbt.
 \\
 Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = \Hom_\CatC \left(A,B \right) \forall A,B \in K \)
  
@@ -332,8 +344,11 @@ Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = 
 	Wenn sich die Kategorie als gerichteter Graph ausdr\"ucken l\"asst, dann ist die duale Kategorie der gleiche Graph nur die Richtungen sind umgekehrt.
 	
 \begin{bsp}
-	Hier sehen wir dieses "umkehren" der Pfeile an einem Beispiel:
-	%includestandalone{./files/diagrams/diagram_teiler_6_dual}
+	Hier sehen wir dieses " Umkehren" der Pfeile an einem Beispiel: \\
+%	\includestandalote{
+	\input{./files/diagrams/diagram_teiler_6}
+%	\includestandalone{
+	\input{./files/diagrams/diagram_teiler_6_dual}
 	
 \end{bsp}
 \begin{defi}[Produkte] \cite[Definition 2.6.6]{Bra}
@@ -344,7 +359,7 @@ Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = 
 		= \left\lbrace \left( X_i \right)_{i \in I } : X_i \in \CatC_i \right) \)
 		\item \( \Hom_\CatD \left( X, Y \right) = \prod_{i \in I } \Hom_{\CatC_i} \left( X_i,Y_i \right) \)
 	\end{itemize}
-	Die Verkettung erfolgt hier Komponentenweise.
+	Die Verkettung erfolgt hier komponentenweise.
 		
 \end{defi}
 
@@ -361,10 +376,13 @@ Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = 
 		\item \( \Ob \left( \CatD \right) = \coprod_{i \in I } \Ob \left( \CatC_i \right) \)
 		\item \( \Hom_\CatD \left( X, Y \right)  =\left\{\begin{array}{cl} \Hom_{\CatC_i} \left( X_i,Y_i \right) , & \mbox{falls } X_i \in \CatC_i \wedge Y_i \in \CatC_i\\ \varnothing, & \mbox{sonst} \end{array}\right. \)
 
-ueber A kategorie
-kategorie von Wirkungen
+Es gibt auch noch weitere Arten der Konstruktion wie \"Uber-A-Kategorie oder Kategorien von Wirkungen, jedoch werde ich auf diese nicht in meiem Vortrag eingehen.
 
+\\
+Ich hoffe, dass ich verdeutlichen konnte wie vielseitig und praktisch die Kategorientheorie ist.
 
 %%%% 
+\bibliography{sources}
+\bibliographystyle{alpha}
 
 \end{document}
