@@ -262,7 +262,7 @@ l		Jetzt folgt das erste Beispiel
 		Als nachstes wollen wir uns mit der Diagrammjagd besch\"aftigen \cite[Beispiel 2.4.7]{Bra}.
 		Im folgenden Diagramm sind die kleinen Quadrate bereits kommutativ und es ist zu zeigen, dass dann auch schon das grosse Viereck kommutativ ist. \\
 		\includestandalone{./files/diagrams/diagram_doppel_quadrat}
-		
+		\newpage
 		Ein weiteres sch\"ones Beispiel f\"ur eine Diagrammjagd ist  die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode]{tikzcd} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen. \\
 		\includestandalone{./files/diagrams/diagram_wuerfel}
 
@@ -274,6 +274,10 @@ l		Jetzt folgt das erste Beispiel
 	\end{defi}
 	%Bespiel?
 \newpage
+
+
+
+
 \section{Initiale und finale Objekte}
 \begin{defi}[Initiale und finale Elemente]
  \cite[Definition 2.5.1]{Bra}
@@ -287,9 +291,9 @@ l		Jetzt folgt das erste Beispiel
 	\end{enumerate}
 \end{defi}
 	Als Beispiel k\"onnen wir hier wieder die Pr\"aordnung der Teiler von 6 w\"ahlen.
-	\begin{bsp}
-	\includestandalone{./files/diagrams/diagram_teiler_6}
-	die \( 1 \in \CatC \) ist initial und  \(6 \in \CatC \) ist terminal wie man sofort sieht.
+	\begin{bsp}\\
+	\includestandalone{./files/diagrams/diagram_teiler_6} \\
+	Die \( 1 \in \CatC \) ist initial und  \(6 \in \CatC \) ist terminal, wie man sofort sieht.
 	\end{bsp}
 	
 \begin{lem}[Eindeutigkeit]
@@ -322,7 +326,8 @@ Dann k\"onnen wir eine Kategorie \CatD konstruieren mit \( \Ob \left( \CatD \rig
 Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = \Hom_\CatC \left(A,B \right) \forall A,B \in K \)
  
 \begin{defi}[Duale Kategorie] \cite[Definition 2.6.3]{Bra} 
-	Es sei \CatC eine Kategorie. Die zu Kategorie \( \CatC^{op} \) wird wie folgt konstruiert:
+	Es sei \CatC eine Kategorie.  \\
+	Die zu Kategorie \( \CatC^{op} \) wird wie folgt konstruiert:
 	\begin{itemize}
 		\item \( \Ob \left( \CatC^{op} \right) := \Ob \left( \CatC \right) \)
 		\item \( \Hom_{\CatC^{op}} \left( A,B \right) := \Hom_\CatC \left( B,A \right) \forall A,B \in \Ob \left( \CatC \right) \)
@@ -335,13 +340,13 @@ Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = 
 	Wenn sich die Kategorie als gerichteter Graph ausdr\"ucken l\"asst, dann ist die duale Kategorie der gleiche Graph nur die Richtungen sind umgekehrt.
 	
 \begin{bsp}
-	Hier sehen wir dieses " \ Umkehren" der Pfeile an einem Beispiel: \\
+	Hier sehen wir dieses "Umkehren" \ der Pfeile an einem Beispiel: \\
 	\includestandalone{./files/diagrams/diagram_teiler_6} 
 	\( \leftrightarrow \)
 	\includestandalone{./files/diagrams/diagram_teiler_6_dual}
 	
 \end{bsp}
-\begin{defi}[Produkte] \cite[Definition 2.6.6]{Bra}
+\begin{defi}[Produkte] \cite[Definition 2.6.6]{Bra} \\
 	Sei \( \left( \CatC_i \right)_{ i \in I } \) eine Familie von Kategorien, 
 	dann erhalten wir ihr \emph{Produkt} \( \CatD= \prod_{i \in I} \CatC_i }} \) wie folgt:
 	\begin{itemize}
@@ -354,19 +359,19 @@ Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = 
 \end{defi}
 
 \begin{defi}[Koprodukte] 
-	\cite[Definition 2.6.7]{Bra}
+	\cite[Definition 2.6.7]{Bra} \\
 	Ist \( \left( X_i \right)_{i \in I} \) eine Familie von Mengen, so ist ihre \emph{disjunkte Vereinigung} oder auch \emph{Koprodukt} durch
 	\[
 		\coprod_{i \in I } X_i:= \bigcup_{i \in I} X_i \times \left\lbrace i \right\rbrace
 	\]
-	definiert.
+	definiert. \\
 	Sei nun \( \left( \CatC_i \right)_{ i \in I } \) eine Familie von Kategorien, 
 	dann erhalten wir ihr \emph{Koprodukt} \( \CatD= \coprod_{i \in I} \CatC_i }} \) wie folgt:
 	\begin{itemize}
 		\item \( \Ob \left( \CatD \right) = \coprod_{i \in I } \Ob \left( \CatC_i \right) \)
 		\item \( \Hom_\CatD \left( X, Y \right)  =\left\{\begin{array}{cl} \Hom_{\CatC_i} \left( X_i,Y_i \right) , & \mbox{falls } X_i \in \CatC_i \wedge Y_i \in \CatC_i\\ \varnothing, & \mbox{sonst} \end{array}\right. \)
 
-Es gibt auch noch weitere Arten der Konstruktion wie \"Uber-A-Kategorie oder Kategorien von Wirkungen, jedoch werde ich auf diese nicht in meinem Vortrag eingehen.
+Es gibt auch noch weitere Arten der Konstruktion, wie \"Uber-A-Kategorie oder Kategorien von Wirkungen, jedoch werde ich auf diese nicht in meinem Vortrag eingehen.
 
 \\
 Ich hoffe, dass ich verdeutlichen konnte wie vielseitig und praktisch die Kategorientheorie ist.
