@@ -134,8 +134,8 @@ l		Jetzt folgt das erste Beispiel
 			 \item \( A \leq B \wedge B \leq  C \rightarrow A \leq C \)  (da eine Pr\"aordnung transitiv ist) 
 			 \item \( \id_A \): \( A \leq A \) (da eine  Pr\"aordnung reflexiv ist)
 		 \end{itemize}
-			 Dass die zus\"atzlichen Gleichungen gelten ist schnell gezeigt:
-			 \begin{eqnarray}
+			 Das die zus\"atzlichen Gleichungen gelten ist schnell gezeigt:
+			 \begin{eqnarray*}
 			  \text{Assoziativit\"at:} &  ( x \leq y \wedge x \leq z ) & \wedge z \leq a \\
 					 \leftrightarrow & (x \leq z ) & \wedge  z \leq a \\
 					 \leftrightarrow & x \leq a & \\
@@ -148,9 +148,9 @@ l		Jetzt folgt das erste Beispiel
 		\begin{bsp}
 		
 		 %Beispiel(Teiler)
-		  \cite[Beispiel 2.2.30]{Bra}
-		 \( \Ob(X) = \left\lbrace 1,2,3,6 \right\rbrace \)
-		 Ein Morphismus \(x   \to y \) existiert, wenn \( x \vert y\) \\
+		  \cite[Beispiel 2.2.30]{Bra} 
+		 \( \Ob(X) = \left\lbrace 1,2,3,6 \right\rbrace \) \\
+		 Ein Morphismus \(x   \to y \) existiert, wenn \( x \vert y\) . \\
 		 
 		  \includestandalone{./files/diagrams/diagram_teiler_6} 
 		\end{bsp} 
@@ -180,13 +180,13 @@ l		Jetzt folgt das erste Beispiel
 		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) , so dass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
 		Dieser Morphismus \( g \) ist eindeutig und wird mit \( f^{-1} :B \to A \) bezeichnet.
 		\(f^{-1} \) wird auch der zu \( f \)  inverse Morphismus genannt.\\
-		\includestandalone{files/diagrams/diagram_isomorph_objects}
+		\includestandalone{files/diagrams/diagram_isomorph_objects} \\
 		Falls es einen Isomorphismus \( A \to B \) gibt sagen wir \( A \) ist isomorph zu \( B \) und schreiben \( A \equiv B \).
 		\end{defi}
 		
 		
 		 \begin{defi}[Gruppoid]
-		  \cite[Beispiel 2.2.34]{Bra}
+		  \cite[Beispiel 2.2.34]{Bra} \\
 		 Ein \emph{Gruppoid} ist eine Kategorie, in der jeder \Mor ein \Iso ist.
 		  \end{defi}
 		  
@@ -208,7 +208,9 @@ l		Jetzt folgt das erste Beispiel
 		 
 		\begin{defi}[Automorphismengruppen]
 		\cite[Definition 2.3.13]{Bra}
-		 Es sei \CatC eine Kategorie. Ein Isomorphismus \( f:A \to A \) in \CatC heisst auch \emph{Automorphismus} von $A$. Die Automorphismen von $A$ bilden \bzgl der Komposition eine Gruppe, die \emph{Automorphismusgruppe}.
+		 Es sei \CatC eine Kategorie.  \\
+		 Ein Isomorphismus \( f:A \to A \) in \CatC heisst auch \emph{Automorphismus} von $A$. 
+		 Die Automorphismen von $A$ bilden \bzgl der Komposition eine Gruppe, die \emph{Automorphismusgruppe}.
 		\end{defi}
 		
 		 \begin{defi}[Homotopieklasse]
@@ -228,7 +230,7 @@ l		Jetzt folgt das erste Beispiel
 		Jetzt m\"ussen wir \"uberpr\"ufen, ob die Eigenschaften der Verkn\"upfung gegeben sind.
 		Es ist offensichtlich, dass das Vor- oder Nachschalten eines konstanten Weges hier keine Ver\"anderung bringt, somit gilt f\"ur einen beliebigen Weg 
 		\(w:x \to y \) mit \( x,y \in X\):
-		\( \id_y \circ w = w = w \circ \id_x \)
+		\( \id_y \circ w = w = w \circ \id_x \) \\
 		Die Assoziativit\"at folgt daraus, dass wir die Homtopieklassen betrachten und die Elemente der Homotopieklasse stetig ineinander \"ubergehen.
 		Da jeder Weg ein Inverses, gegeben durch \( w^{-1}(t):=w(1-t): [0,1] \to X \) hat, wird diese Kategorie zum Gruppoid.
 		Wenn wir jetzt die Automorphismengruppe \( Aut_{\Pi(X)}(x) \) eines Punktes \(x \in X \) aus dem Fundamentalgruppoid betrachten, erhalten wir die Fundamentalgruppe \( \Pi_1(X,x) \) \cite[Beispiel 2.3.14-(8)]{Bra}
@@ -248,17 +250,17 @@ l		Jetzt folgt das erste Beispiel
 		\]
 		von Morphismen \( X(v) \to X(w) \) gilt.
 		
-		Als Spezialfall hiervon kann man kommutative Dreiecke und Quadrate betrachten:
- 		\includestandalone{./files/diagrams/diagram_dreieck_easy}
+		Als Spezialfall hiervon kann man kommutative Dreiecke und Quadrate betrachten:\\
+ 		\includestandalone{./files/diagrams/diagram_dreieck_easy} \\
 		\includestandalone{./files/diagrams/diagram_quadrat_easy}	
 		\end{defi}
 			 
 		Ein weiteres sch\"ones Beispiel ist das folgende Diagramm:
-		\begin{bsp}
+		\begin{bsp} \\
 		\includestandalone{./files/diagrams/diagram_herz}
 		\end{bsp}
 		Als nachstes wollen wir uns mit der Diagrammjagd besch\"aftigen \cite[Beispiel 2.4.7]{Bra}.
-		Im folgenden Diagramm sind die kleinen Quadrate bereits kommutativ und es ist zu zeigen, dass dann auch schon das grosse Viereck kommutativ ist.
+		Im folgenden Diagramm sind die kleinen Quadrate bereits kommutativ und es ist zu zeigen, dass dann auch schon das grosse Viereck kommutativ ist. \\
 		\includestandalone{./files/diagrams/diagram_doppel_quadrat}
 		
 		Ein weiteres sch\"ones Beispiel f\"ur eine Diagrammjagd ist  die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode]{tikzcd} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen. \\
