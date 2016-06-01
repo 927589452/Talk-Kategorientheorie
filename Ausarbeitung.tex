@@ -126,7 +126,7 @@ l		Jetzt folgt das erste Beispiel
 		 \end{bsp}
 		 
 		 \begin{bsp}
-		 Ein weiteres Beispiel ware eine Pr\"aordnung \( X, \leq \) bestehend aus einer Menge \( X \) und einer bin\"aren Relation \( \leq \), welche reflexiv und transitiv ist.
+		 Ein weiteres Beispiel w\"are eine Pr\"aordnung \( \left( X, \leq \right) \) bestehend aus einer Menge \( X \) und einer bin\"aren Relation \( \leq \), welche reflexiv und transitiv ist.
 		 
 		 \begin{itemize}
 			 \item \(\Ob \) = \BN
@@ -134,14 +134,14 @@ l		Jetzt folgt das erste Beispiel
 			 \item \( A \leq B \wedge B \leq  C \rightarrow A \leq C \)  (da eine Pr\"aordnung transitiv ist) 
 			 \item \( \id_A \): \( A \leq A \) (da eine  Pr\"aordnung reflexiv ist)
 		 \end{itemize}
-			 Das die zus\"atzlichen Gleichungen gelten ist schnell gezeigt:
+			 Dass die zus\"atzlichen Gleichungen gelten, ist schnell gezeigt:
 			 \begin{eqnarray*}
 			  \text{Assoziativit\"at:} &  ( x \leq y \wedge x \leq z ) & \wedge z \leq a \\
 					 \leftrightarrow & (x \leq z ) & \wedge  z \leq a \\
 					 \leftrightarrow & x \leq a & \\
 					 \leftrightarrow & 	x \leq y  & \wedge  (y \leq a) \\
-					 \leftrightarrow &   x \leq y & \wedge  (x \leq z  \wedge  z \leq a )\\
-			 \end{eqnarray}
+					 \leftrightarrow &   x \leq y & \wedge  (x \leq z  \wedge  z \leq a )
+			 \end{eqnarray*}
 			 und mit den selben Umformungsschritten gilt dies auch f\"ur die Identit\"aten.
 		\end{bsp}
 		
@@ -156,7 +156,7 @@ l		Jetzt folgt das erste Beispiel
 		\end{bsp} 
 		 
 	 	\begin{defi}[Diskrete und indiskrete Kategorien]
-	 	 \cite[Beispiel 2.2.31]{Bra}
+	 	 \cite[Beispiel 2.2.31]{Bra} \\
 	 		Eine diskrete Kategorie ist eine Kategorie, in der die einzigen Morphismen die Identit\"aten sind.
 	 		Wenn in einer Kategorie zwischen allen Objekten genau ein Morphismus existiert, sprechen wir von einer indiskreten Kategorie.
 	 	\end{defi}	
@@ -164,7 +164,6 @@ l		Jetzt folgt das erste Beispiel
 	 \begin{bsp}[Datenbanken]
 		  \cite[Beispiel 2.2.33]{Bra} \\
 		 \includestandalone{./files/diagrams/diagram_database} \\
-		 
 		 Es wird zus\"atzlich gegeben, dass gilt:
 		 \begin{itemize}
 			 \item \( \text{arbeitet \ in} \circ \text{Abteilungsleiter}= \id_\text{Abteilung}  \)
@@ -290,7 +289,7 @@ l		Jetzt folgt das erste Beispiel
 		\item	Ein Objekt \( A \in \CatC \) heisst \emph{Nullobjekt}, wenn es initial und final ist.
 	\end{enumerate}
 \end{defi}
-	Als Beispiel k\"onnen wir hier wieder die Pr\"aordnung der Teiler von 6 w\"ahlen.
+	Als Beispiel k\"onnen wir hier wieder die Pr\"aordnung der Teiler von 6 w\"ahlen.\\
 	\begin{bsp}\\
 	\includestandalone{./files/diagrams/diagram_teiler_6} \\
 	Die \( 1 \in \CatC \) ist initial und  \(6 \in \CatC \) ist terminal, wie man sofort sieht.
