@@ -23,14 +23,14 @@
 \maketitle
 \section{Einleitung}
 	Die folgende Ausarbeitung ist als Grundlage und Erg\"anzung zu meinem Vortrag zu sehen. 
-	Ich werde einige Beispiele hier genauer ausarbeiten, als ich sie in der Pr\"asentation besprechen werde.
+	Ich werde einige Beispiele hier genauer ausarbeiten, als ich sie in der Pr\"asentation besprechen werde. \\
 	Was ist Kategorientheorie? 
-	Ich sehe die Kategorientheorie ein bisschen als eine Art Hilfsmathematik, so wie andere Wissenschaften die Mathematik als Hilfswissenschaft ansehen;
-	die Mathematik an sich scheint in vielen Auspr\"agungen die N\"utzlichkeit f\"ur das reale Leben zu fehlen,
+	Ich sehe die Kategorientheorie ein bisschen als eine Art Hilfsmathematik, so wie andere Wissenschaften die Mathematik als Hilfswissenschaft ansehen.
+	Der Mathematik an sich scheint es in vielen Auspr\"agungen an N\"utzlichkeit f\"ur das reale Leben zu fehlen,
 	und so mag sich manchem nicht sofort erschliessen, 
 	warum die Kategorientheorie so praktisch ist.
 	\\
-	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen k\"onnen. Der Aufbau folgt dem Aufbau der Quelle \nocite{Bra}.
+	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen k\"onnen. Der Aufbau folgt der Sortierung der Quelle. \nocite{Bra}
 	
 \section{Der Begriff der Kategorie}
 	
@@ -100,16 +100,16 @@
 		\end{itemize}
 		\end{defi}
 		Was  diese Definition bedeutet, werde ich nach kurzem Ausholen an einem Beispiel zeigen.
-		Hier erstmal noch einige weiter Definitionen:
+		Hier erstmal noch einige weitere Definitionen:
 		
-		\begin{defi}[kleine Kategporie] \cite[Definition 2.2.29]{Bra}
+		\begin{defi}[kleine Kategorie] \cite[Definition 2.2.29]{Bra}
 		Eine \emph{kleine Kategorie} ist eine Kategorie, deren Klasse der Objekte eine Menge ist.
 		\end{defi}
 		\begin{defi}[Start und Ziel]  \cite[Bemerkung 2.2.25]{Bra}
 		F\"ur einen Morphismus \( f: A \to B \) in einer Kategorie \CatC nennen wir \( A \) das Start- und \( B \) das Ziel-Objekt.
 		\end{defi}
 		
-l		Jetzt folgt das erste Beispiel
+l		Jetzt beginnen wir mit einem Beispiel
 
 		\begin{bsp}
 		
@@ -124,7 +124,7 @@ l		Jetzt folgt das erste Beispiel
 		 \end{itemize}
 		 Die f\"ur die Verkn\"upfung von Morphismen geforderten Eigenschaften folgen sofort aus den Eigenschaften der Matrixmultiplikation.
 		 \end{bsp}
-		 
+		 	 
 		 \begin{bsp}
 		 Ein weiteres Beispiel w\"are eine Pr\"aordnung \( \left( X, \leq \right) \) bestehend aus einer Menge \( X \) und einer bin\"aren Relation \( \leq \), welche reflexiv und transitiv ist.
 		 
@@ -176,7 +176,7 @@ l		Jetzt folgt das erste Beispiel
 		
 		\begin{defi}[Isomorphismus ]
 		 \cite[Definition 2.3.1]{Bra}
-		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) , so dass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
+		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) gibt, so dass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
 		Dieser Morphismus \( g \) ist eindeutig und wird mit \( f^{-1} :B \to A \) bezeichnet.
 		\(f^{-1} \) wird auch der zu \( f \)  inverse Morphismus genannt.\\
 		\includestandalone{files/diagrams/diagram_isomorph_objects} \\
