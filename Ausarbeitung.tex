@@ -35,7 +35,7 @@
 \section{Der Begriff der Kategorie}
 	
 		\begin{defi}[Kategorie]
-		\cite[Definition 2.2.2]{Bra}
+		\cite[Definition 2.2.2]{Bra} \\
 		Eine \emph{Kategorie} \CatC besteht aus den folgenden Daten:
 		\begin{itemize}
 			\item einer Klasse \( \Ob \left( \CatC \right) \), deren Elemente wir \emph{Objekte} nennen,
@@ -152,7 +152,7 @@ l		Jetzt beginnen wir mit einem Beispiel
 		 \( \Ob(X) = \left\lbrace 1,2,3,6 \right\rbrace \) \\
 		 Ein Morphismus \(x   \to y \) existiert, wenn \( x \vert y\) . \\
 		 
-		  \includestandalone{./files/diagrams/diagram_teiler_6} 
+		  \includestandalone[width=.5\linewidth]{./files/diagrams/diagram_teiler_6} 
 		\end{bsp} 
 		 
 	 	\begin{defi}[Diskrete und indiskrete Kategorien]
@@ -163,7 +163,7 @@ l		Jetzt beginnen wir mit einem Beispiel
 	 		
 	 \begin{bsp}[Datenbanken]
 		  \cite[Beispiel 2.2.33]{Bra} \\
-		 \includestandalone{./files/diagrams/diagram_database} \\
+		 \includestandalone[width=.7\linewidth]{./files/diagrams/diagram_database} \\
 		 Es wird zus\"atzlich gegeben, dass gilt:
 		 \begin{itemize}
 			 \item \( \text{arbeitet \ in} \circ \text{Abteilungsleiter}= \id_\text{Abteilung}  \)
@@ -179,7 +179,7 @@ l		Jetzt beginnen wir mit einem Beispiel
 		Sei \CatC eine Kategorie. Ein Morphismus \( f: A \to B  \) heisst  \emph{Isomorphismus}, wenn es einen Morphismus \( g: B \to A \) gibt, so dass \( f \circ g  = \id_B \) und \( g \circ f = \id_B \). 
 		Dieser Morphismus \( g \) ist eindeutig und wird mit \( f^{-1} :B \to A \) bezeichnet.
 		\(f^{-1} \) wird auch der zu \( f \)  inverse Morphismus genannt.\\
-		\includestandalone{files/diagrams/diagram_isomorph_objects} \\
+		\includestandalone[width=.5\linewidth]{files/diagrams/diagram_isomorph_objects} \\
 		Falls es einen Isomorphismus \( A \to B \) gibt sagen wir \( A \) ist isomorph zu \( B \) und schreiben \( A \equiv B \).
 		\end{defi}
 		
@@ -250,25 +250,27 @@ l		Jetzt beginnen wir mit einem Beispiel
 		von Morphismen \( X(v) \to X(w) \) gilt.
 		
 		Als Spezialfall hiervon kann man kommutative Dreiecke und Quadrate betrachten:\\
- 		\includestandalone{./files/diagrams/diagram_dreieck_easy} 
-		\includestandalone{./files/diagrams/diagram_quadrat_easy}	
+ 		\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_dreieck_easy} 
+		\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_quadrat_easy}	
 		\end{defi}
 			 
+		\newpage
+		
 		Ein weiteres sch\"ones Beispiel ist das folgende Diagramm:
 		\begin{bsp} \\
-		\includestandalone{./files/diagrams/diagram_herz}
+		\includestandalone[width=.8\linewidth]{./files/diagrams/diagram_herz}
 		\end{bsp}
 		Als n\"achstes wollen wir uns mit der Diagrammjagd besch\"aftigen \cite[Beispiel 2.4.7]{Bra}.
 		Im folgenden Diagramm sind die kleinen Quadrate bereits kommutativ und es ist zu zeigen, dass dann auch schon das grosse Viereck kommutativ ist. \\
-		\includestandalone{./files/diagrams/diagram_doppel_quadrat}
+		\includestandalone[width=.8\linewidth]{./files/diagrams/diagram_doppel_quadrat}
 		\newpage
 		Ein weiteres sch\"ones Beispiel f\"ur eine Diagrammjagd ist  die Kommutativit\"at beim folgenden W\"urfel \cite[Quellcode]{tikzcd} unter der Annahme der Kommutativit\"at der Seitenfl\"achen zu zeigen. \\
-		\includestandalone{./files/diagrams/diagram_wuerfel}
+		\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_wuerfel}
 
 	\begin{defi}[Faktorisierung]
 	 \cite[Definition 2.4.8]{Bra}
 	Eine \emph{Faktorisierung} eines Morphismus \( f:A \to B \) ist ein kommutatives Diagramm \\
-		\includestandalone{./files/diagrams/diagram_dreieck_faktor} \\
+		\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_dreieck_faktor} \\
 	. Man sagt $f$ faktorisiert \"uber $g$ bzw. $ C $.
 	\end{defi}
 	%Bespiel?
@@ -291,12 +293,12 @@ l		Jetzt beginnen wir mit einem Beispiel
 \end{defi}
 	Als Beispiel k\"onnen wir hier wieder die Pr\"aordnung der Teiler von 6 w\"ahlen.\\
 	\begin{bsp}\\
-	\includestandalone{./files/diagrams/diagram_teiler_6} \\
+	\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_teiler_6} \\
 	Die \( 1 \in \CatC \) ist initial und  \(6 \in \CatC \) ist terminal, wie man sofort sieht.
 	\end{bsp}
 	
 \begin{lem}[Eindeutigkeit]
- \cite[Lemma 2.5.5]{Bra}
+ {\cite[Lemma 2.5.5]{Bra}}
 	Es seien \CatC eine Kategorie und 
 	\(A , A' \in \CatC \) zwei Objekte.
 	\begin{enumerate}
@@ -307,26 +309,30 @@ l		Jetzt beginnen wir mit einem Beispiel
 	\end{enumerate}
 	In diesem Sinne sind initiale bzw. finale Objekte also eindeutig.
 \end{lem}
-
+\newpage
 \section{Konstruktion mit Kategorien}
 
-\begin{defi}[Unterkategorie] {\cite[Definition 2.6.1]{Bra}} 
+\begin{defi}[Unterkategorie] {\cite[Definition 2.6.1]{Bra}} \\
 Es sei \CatC eine Kategorie und \( K \subset \Ob\left(\CatC\right) \) eine Teilklasse. F\"ur alle \( A,B \in K \) sei eine Teilmenge
-\[
+\(
 	\Hom_\CatD \left( A, B \right) \subset \Hom_\CatC \left( A, B \right)
-\]
+\)
 gegeben. Dabei gelte
 \begin{itemize}
 	\item \( \id_A \in \Hom_\CatD \left( A, A \right) \forall A \in K \)
-	\item \( g \circ f \in  \Hom_\CatD \left( A,C \right) \), falls \( f \in \Hom_\CatD \left( A, B \right) \) und  \( g \in \Hom_\CatD \left( B , C \right) .\)
+	\item \( g \circ f \in  \Hom_\CatD \left( A,C \right) \), 
+		falls \( f \in \Hom_\CatD \left( A, B \right) \) und  
+		\( g \in \Hom_\CatD \left( B , C \right) \).
 \end{itemize}
+
 Dann k\"onnen wir eine Kategorie \CatD konstruieren mit \( \Ob \left( \CatD \right) = K \) und Homomorphismus-Mengen \( \Hom_\CatD \left(A,B \right) \) f\"ur \( A,B \in K \). Die Komposition und Identit\"aten werden von \CatC vererbt.
 \\
-Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = \Hom_\CatC \left(A,B \right) \forall A,B \in K \)
+Eine solche Unterkategorie heisst \emph{voll}, wenn \( \Hom_\CatD \left( A,B \right) = \Hom_\CatC \left(A,B \right) \forall A,B \in K \). \\
  
-\begin{defi}[Duale Kategorie] \cite[Definition 2.6.3]{Bra} 
+ 
+\begin{defi}[Duale Kategorie] {\cite[Definition 2.6.3]{Bra}}
 	Es sei \CatC eine Kategorie.  \\
-	Die zu Kategorie \( \CatC^{op} \) wird wie folgt konstruiert:
+	Die Kategorie \( \CatC^{op} \) wird wie folgt konstruiert:
 	\begin{itemize}
 		\item \( \Ob \left( \CatC^{op} \right) := \Ob \left( \CatC \right) \)
 		\item \( \Hom_{\CatC^{op}} \left( A,B \right) := \Hom_\CatC \left( B,A \right) \forall A,B \in \Ob \left( \CatC \right) \)
@@ -339,13 +345,12 @@ Eine solche Unterkategorie heisst voll, wenn \( \Hom_\CatD \left( A,B \right) = 
 	Wenn sich die Kategorie als gerichteter Graph ausdr\"ucken l\"asst, dann ist die duale Kategorie der gleiche Graph nur die Richtungen sind umgekehrt.
 	
 \begin{bsp}
-	Hier sehen wir dieses "Umkehren" \ der Pfeile an einem Beispiel: \\
-	\includestandalone{./files/diagrams/diagram_teiler_6} 
-	\( \leftrightarrow \)
-	\includestandalone{./files/diagrams/diagram_teiler_6_dual}
+	Hier sehen wir dieses " Umkehren" \ der Pfeile an einem Beispiel: \\
+	\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_teiler_6} 
+	\includestandalone[width=.5\linewidth]{./files/diagrams/diagram_teiler_6_dual}
 	
 \end{bsp}
-\begin{defi}[Produkte] \cite[Definition 2.6.6]{Bra} \\
+\begin{defi}[Produkte] {\cite[Definition 2.6.6]{Bra}} \\
 	Sei \( \left( \CatC_i \right)_{ i \in I } \) eine Familie von Kategorien, 
 	dann erhalten wir ihr \emph{Produkt} \( \CatD= \prod_{i \in I} \CatC_i }} \) wie folgt:
 	\begin{itemize}
