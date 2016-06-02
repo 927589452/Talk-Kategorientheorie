@@ -30,7 +30,7 @@
 	und so mag sich manchem nicht sofort erschliessen, 
 	warum die Kategorientheorie so praktisch ist.
 	\\
-	Im folgenden Teil werde ich einige Definitionen liefern und sie hoffentlich mit den Beispielen von der N\"utzlichkeit der Defininitionen \"uberzeugen k\"onnen. Der Aufbau folgt der Sortierung der Quelle. \nocite{Bra}
+	Im folgenden Teil werde ich einige Definitionen liefern und euch mit den Beispielen hoffentlich von der N\"utzlichkeit der Defininitionen \"uberzeugen k\"onnen. Der Aufbau folgt der Sortierung der Quelle. \nocite{Bra}
 	
 \section{Der Begriff der Kategorie}
 	
@@ -102,7 +102,7 @@
 		Was  diese Definition bedeutet, werde ich nach kurzem Ausholen an einem Beispiel zeigen.
 		Hier erstmal noch einige weitere Definitionen:
 		
-		\begin{defi}[kleine Kategorie] \cite[Definition 2.2.29]{Bra}
+		\begin{defi}[kleine Kategorie] \cite[Definition 2.2.29]{Bra} \\
 		Eine \emph{kleine Kategorie} ist eine Kategorie, deren Klasse der Objekte eine Menge ist.
 		\end{defi}
 		\begin{defi}[Start und Ziel]  \cite[Bemerkung 2.2.25]{Bra}
@@ -373,7 +373,12 @@ Eine solche Unterkategorie heisst \emph{voll}, wenn \( \Hom_\CatD \left( A,B \ri
 	dann erhalten wir ihr \emph{Koprodukt} \( \CatD= \coprod_{i \in I} \CatC_i }} \) wie folgt:
 	\begin{itemize}
 		\item \( \Ob \left( \CatD \right) = \coprod_{i \in I } \Ob \left( \CatC_i \right) \)
-		\item \( \Hom_\CatD \left( X, Y \right)  =\left\{\begin{array}{cl} \Hom_{\CatC_i} \left( X_i,Y_i \right) , & \mbox{falls } X_i \in \CatC_i \wedge Y_i \in \CatC_i\\ \varnothing, & \mbox{sonst} \end{array}\right. \)
+		\item \( \Hom_\CatD \left( X, Y \right)  =\left\{\begin{array}{cl} \Hom_{\CatC_i} \left( X_i,Y_i \right) , 
+		 & \mbox{falls } X_i \in \CatC_i \wedge Y_i \in \CatC_i\\ \varnothing, & \mbox{sonst} \end{array}\right. \)
+	\end{itemize}
+	
+
+\end{defi}
 
 Es gibt auch noch weitere Arten der Konstruktion, wie \"Uber-A-Kategorie oder Kategorien von Wirkungen, jedoch werde ich auf diese nicht in meinem Vortrag eingehen.
 
@@ -381,6 +386,7 @@ Es gibt auch noch weitere Arten der Konstruktion, wie \"Uber-A-Kategorie oder Ka
 Ich hoffe, dass ich verdeutlichen konnte wie vielseitig und praktisch die Kategorientheorie ist.
 
 %%%% 
+%\newpage
 \bibliography{sources}
 \bibliographystyle{alpha}
 
