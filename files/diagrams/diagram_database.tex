@@ -1,7 +1,8 @@
 % Tikz file for commutative diagramm
-%\input{standalone_header}
-%\begin{document}
-	\begin{tikzcd}
+\input{standalone_header}
+\begin{document}
+	\begin{tikzcd}[
+		]
 		Mitarbeiter
 		\arrow[loop,swap , left, "Manager"]{}
 		\arrow[rr, bend left=10, "arbeitet \ in"]{}
@@ -13,7 +14,7 @@
 		Abteilung
 		\arrow[ldd, bend left=10, "Name"]{}
 		\\	
-		&&\\
-		& Zeichenkette & 
+		&&&\\
+		& Zeichenkette & \\
 	\end{tikzcd}
-%\end{document}
+\end{document}
